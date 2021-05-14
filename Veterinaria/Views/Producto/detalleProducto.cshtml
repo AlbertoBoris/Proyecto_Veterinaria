@@ -1,0 +1,98 @@
+﻿@model Veterinaria.Models.Producto
+
+@{
+    ViewBag.Title = "detalleProducto";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>detalleProducto</h2>
+
+<div>
+    <h4>Producto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_PROD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_PROD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMB_PROD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMB_PROD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PREC_PROD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PREC_PROD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STOCK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STOCK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SERIE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SERIE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MARCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MARCA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROV_PROD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROV_PROD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESC_PROD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESC_PROD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESC_HTML)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESC_HTML)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FOTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FOTO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "listadoProducto")
+</p>

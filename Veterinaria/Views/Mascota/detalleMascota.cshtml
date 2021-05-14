@@ -1,0 +1,75 @@
+﻿@model Veterinaria.Models.Mascota
+
+@{
+    ViewBag.Title = "detalleMascota";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>detalleMascota</h2>
+
+<div>
+    <h4>Mascota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_MASC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_MASC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANIMAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANIMAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAZA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAZA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDAD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDAD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_NACI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_NACI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_USU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "listadoMascota")
+</p>

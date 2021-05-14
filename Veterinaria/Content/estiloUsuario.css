@@ -1,0 +1,39 @@
+﻿body {
+}
+
+.lisProdu {
+    width: 48%;
+    height: 380px;
+    padding: 5px;
+    display: inline-block;
+    border: 1px solid blue;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.listIma {
+    float: left;
+    margin-right: 10px;
+    width: 240px;
+    height: 360px;
+}
+
+.lisImape {
+    width: 40px;
+    height: 60px;
+}
+
+#columna1 {
+    margin: 0px;
+    float: left;
+    width: 58%;
+    padding: 5px;
+}
+
+#columna2 {
+    margin: 0px;
+    float: left;
+    width: 40%;
+    padding: 5px;
+}

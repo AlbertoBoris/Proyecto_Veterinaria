@@ -1,0 +1,115 @@
+﻿@model Veterinaria.Models.Usuario
+
+@{
+    ViewBag.Title = "detalleUsuario";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>detalleUsuario</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DNI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DNI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMB_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMB_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PASS_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PASS_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORREO_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORREO_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_NACI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_NACI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEXO_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEXO_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_DIST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_DIST)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

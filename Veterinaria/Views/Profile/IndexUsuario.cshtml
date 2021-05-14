@@ -1,0 +1,104 @@
+﻿@model Veterinaria.Models.Usuario
+
+@{
+    ViewBag.Title = "IndexUsuario";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>BIENVENIDO(A) @ViewBag.nombre</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMB_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMB_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORREO_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORREO_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_NACI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_NACI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEXO_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEXO_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_DIST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_DIST)
+        </dd>
+
+    </dl>
+
+    @Html.ActionLink("Registra una Mascota", "registrarMascota", new { id = @Html.DisplayFor(model => model.ID_USU) },
+                                                            new { @class = "glyphicon glyphicon-pencil" })) |
+    @Html.ActionLink("Edita tu Informacion", "editarUsuario", "Usuario", new { id = @Html.DisplayFor(model => model.ID_USU) },
+                                                            new { @class = "glyphicon glyphicon-pencil" })) |
+
+    @Html.ActionLink("Lista de Mascotas", "listadoMascotaxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) },
+                                                            new { @class = "glyphicon glyphicon-pencil" }))
+
+</div>

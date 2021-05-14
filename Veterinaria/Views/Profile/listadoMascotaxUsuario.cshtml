@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Veterinaria.Models.Mascota>
+
+@{
+    ViewBag.Title = "listadoMascotaxUsuario";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>Lista de Mascotas</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_MASC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANIMAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RAZA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EDAD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_NACI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_MASC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANIMAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RAZA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDAD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHA_NACI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_USU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

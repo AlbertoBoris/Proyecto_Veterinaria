@@ -1,0 +1,98 @@
+﻿* {
+    margin: 0px auto;
+    padding: 0;
+}
+
+body {
+    background: lightgrey;
+    font-family: verdana;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#contenedor {
+    width: 85%;
+    height: auto;
+}
+
+.banerAdmin {
+    width: 100%;
+    margin: 0px auto;
+}
+
+#menuAdmin {
+    width: 100%;
+    height: auto;
+    background-color: #1849AB;
+    text-align: center;
+    border: thick;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+.nav li {
+    color: #1849AB;
+    width: 220px;
+    text-decoration: none;
+    display: block;
+    padding: 20px;
+}
+
+.nav > li {
+    float: left;
+}
+
+.nav li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+    .nav li a:hover {
+        background: #3971E1;
+    }
+
+.nav li:hover {
+    background: #3971E1;
+}
+
+.nav li ul {
+    display: none;
+    position: relative;
+    text-align: left;
+}
+
+.nav li:hover > ul {
+    display: block;
+    background-color: #1849AB;
+    position: absolute;
+}
+
+.mostrar {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+}
+
+.marcoDeta {
+    width: 45%;
+    text-align: center;
+    display: inline-block;
+}
+
+.imgFoto {
+    width: 80px;
+    height: 80px;
+}
+
+.Foto {
+    width: 200px;
+    height: 300px;
+}
+
+.pag {
+    text-align: center;
+}

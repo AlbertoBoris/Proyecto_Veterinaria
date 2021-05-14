@@ -1,0 +1,67 @@
+﻿@model Veterinaria.Models.Servicio
+
+@{
+    ViewBag.Title = "detalleServicio";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>detalleServicio</h2>
+
+<div>
+    <h4>Servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_SERV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_SERV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMB_SERV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMB_SERV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRECIO_SERV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRECIO_SERV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESC_SERV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESC_SERV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_HORAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_HORAR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECH_SERV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECH_SERV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

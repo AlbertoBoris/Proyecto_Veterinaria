@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Veterinaria.Models.Producto>
+
+@{
+    ViewBag.Title = "listadoProducto";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>listadoProducto</h2>
+
+<p>
+    @Html.ActionLink("Registrar Nuevo Producto", "registroProducto", "Producto")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_PROD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMB_PROD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PREC_PROD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STOCK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SERIE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MARCA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROV_PROD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESC_PROD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESC_HTML)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FOTO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_PROD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NOMB_PROD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PREC_PROD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.STOCK)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SERIE)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MARCA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PROV_PROD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DESC_PROD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DESC_HTML)
+    </td>
+    <td>
+        <img src="@Url.Content(item.FOTO)" width="50" height="70" />
+    </td>
+    <td>
+        @Html.ActionLink(" ", "editarProducto", new { id = item.ID_PROD },
+                                              new { @class = "glyphicon glyphicon-pencil" })
+        @Html.ActionLink(" ", "detalleProducto", new { id = item.ID_PROD },
+                                            new { @class = "glyphicon glyphicon-plus-sign" })
+        @Html.ActionLink(" ", "eliminarProducto", new { id = item.ID_PROD },
+                                                new { @class = "glyphicon glyphicon-trash" })
+    </td>
+</tr>
+}
+
+</table>

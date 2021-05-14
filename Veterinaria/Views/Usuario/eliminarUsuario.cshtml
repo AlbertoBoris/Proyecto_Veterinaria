@@ -1,0 +1,121 @@
+﻿@model Veterinaria.Models.Usuario
+
+@{
+    ViewBag.Title = "eliminarUsuario";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>eliminarUsuario</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APELLIDOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APELLIDOS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIRECCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIRECCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DNI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DNI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMB_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMB_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PASS_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PASS_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CORREO_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CORREO_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_NACI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_NACI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEXO_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEXO_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_DIST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_DIST)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

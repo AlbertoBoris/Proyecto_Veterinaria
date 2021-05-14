@@ -1,0 +1,426 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: lightgrey;
+    font-family: verdana;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#banner {
+    height: 60px;
+    width: 100%;
+    background: #1849AB;
+    border: groove;
+    border-radius: 10px;
+    border-color: #1849AB;
+}
+
+
+
+.imgbanner {
+    border: thick;
+    border-radius: 10px;
+}
+
+#menuArriba {
+    background: #1849AB;
+    overflow: hidden;
+    width: 75%;
+    height: 100%;
+    float: right;
+    text-align: center;
+    border: thick;
+    border-radius: 10px;
+}
+
+#carrusel {
+    border-radius: 1px;
+    border-color: #1849AB;
+    border-style: groove;
+}
+
+.imgCarrusel {
+    height: 360px;
+}
+
+.oferta {
+    height: 594px;
+}
+
+.fondo {
+    width: 100%;
+    height: 100%;
+    background-image: url("~/Images/principal/videojuegos.png");
+}
+
+#contenido {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0;
+    background: white;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 0;
+    background: white;
+    border: ridge;
+    border-radius: 10px;
+    border-color: cornflowerblue;
+}
+
+#juegos-izquierda {
+    float: left;
+    width: 75%;
+}
+
+.titulo-juegos {
+    background: #1849AB;
+    height: 40px;
+    border-style: groove;
+    border-color: #1849AB;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+.cara-img {
+    width: 24.3%;
+    border: groove;
+    border-color: #1849AB;
+    border-radius: 1px;
+    height: 300px;
+}
+
+#formulario-derecha {
+    float: right;
+    width: 24%;
+}
+
+
+#topIzquierda {
+    float: left;
+    width: 24%;
+}
+
+#topDerecha {
+    float: right;
+    width: 75%;
+    text-align: center;
+}
+
+.top {
+    text-align: center;
+    font-size: 20.5px;
+    list-style: none;
+}
+
+
+.foot {
+    width: 100%;
+}
+
+
+
+/*************************************************************/
+
+
+@keyframes movebaner {
+    0%, 12% {
+        margin-left: 0px
+    }
+
+    12.5%, 24.5% {
+        margin-left: -1200px
+    }
+
+    25%, 37% {
+        margin-left: -2400px
+    }
+
+    37.5%, 49.5% {
+        margin-left: -3600px
+    }
+
+    50%, 62% {
+        margin-left: -4800px
+    }
+
+    62.5%, 74.5% {
+        margin-left: -6000px
+    }
+
+    75%, 87% {
+        margin-left: -7200px
+    }
+
+    87.5%, 99.5% {
+        margin-left: -8400px
+    }
+}
+
+.baner > img {
+    width: 12.5%;
+    height: 100%;
+    float: left;
+}
+
+#cuerpo {
+    background: rgba(255,255,255,0.26);
+    max-width: 1200px;
+}
+
+.menu li {
+    list-style: none;
+    float: left;
+    padding: 20px;
+}
+
+    .menu li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 50px;
+    }
+
+        .menu li a:hover {
+            color: #FFFFFF;
+            background: #3971E1;
+        }
+
+.submenu {
+    display: none;
+}
+
+    .submenu li {
+        float: none;
+        display: block;
+        position: absolute;
+    }
+
+#todo {
+    overflow: hidden;
+    margin: 0px;
+}
+
+#izquierda, #derecha {
+    float: left;
+}
+
+#izquierda {
+    width: 1000px;
+}
+
+#derecha {
+    width: 200px;
+}
+
+.logo {
+    text-align: center;
+}
+
+.contenidos {
+    margin: 15px;
+}
+
+.numeros {
+    margin: 15px 25px;
+}
+
+.subtitulo {
+    color: cadetblue;
+}
+
+.verde {
+    background: #1849AB;
+    color: black;
+    padding: 0;
+    margin: 0;
+    width: 100px;
+}
+
+.azul {
+    background: #1849AB;
+    padding: 15px 15px;
+    text-align: center;
+    margin: 15px auto;
+    color: black;
+}
+
+.verde:hover {
+    background: #3971E1;
+    color: #FFFFFF;
+}
+
+.azul:hover {
+    background: #3971E1;
+    color: #FFFFFF;
+}
+
+ul.menu > li {
+    float: left;
+}
+
+.marss, .fifa, .dbx {
+    float: inherit;
+    overflow: hidden;
+}
+
+.juegos {
+    background: #1849AB;
+    text-align: center;
+    list-style: none;
+}
+
+.dbx, .marss, .fifa {
+    float: left;
+    margin: 10px 15px;
+}
+
+    .marss:hover {
+        background: #3971E1;
+        padding: 1px;
+        margin: 1px;
+    }
+
+    .dbx:hover {
+        background: #3971E1;
+        padding: 1px;
+        margin: 1px;
+    }
+
+    .fifa:hover {
+        background: #3971E1;
+        padding: 1px;
+    }
+
+.dead:hover {
+    background: #3971E1;
+    padding: 1px;
+    margin: 1px;
+}
+
+.mgx:hover {
+    background: #3971E1;
+    padding: 1px;
+    margin: 1px;
+}
+
+.nin:hover {
+    background: #3971E1;
+    padding: 1px;
+}
+
+.dead, .mgx, .nin {
+    float: left;
+    margin: 10px 15px;
+}
+
+.top1, .top2, .top3, .top4, .top5, .top6, .top7, .top8, .top8, .top9, .top10 {
+    padding: 15px 15px;
+    margin: 15px 15px;
+    color: black;
+}
+
+
+    .top1:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top2:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top3:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top4:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top5:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top6:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top7:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top8:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top9:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+    .top10:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+.titulo {
+    background: #1849AB;
+    text-align: center;
+    color: #000000;
+    padding: 15px 15px;
+    margin: 15px;
+}
+
+    .titulo:hover {
+        background: #3971E1;
+        color: #FFFFFF;
+    }
+
+#box1, #box2, #box3 {
+    margin: 10px;
+    float: left;
+    width: 310px;
+    height: 260px;
+    text-align: center;
+    background: #1849AB;
+}
+
+    #box1:hover {
+        background: #3971E1;
+    }
+
+    #box2:hover {
+        background: #3971E1;
+    }
+
+    #box3:hover {
+        background: #3971E1;
+    }
+
+#creditos {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    color: #FFFFFF;
+    background: #1849AB;
+    text-align: center;
+}
