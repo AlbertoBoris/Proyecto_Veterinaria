@@ -38,6 +38,7 @@ namespace Veterinaria.Models
         public string PASS_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Correo del Usuario")]
+        [EmailAddress]
         [DisplayName("CORREO")]
         public string CORREO_USU { get; set; }
 

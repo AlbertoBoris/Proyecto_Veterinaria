@@ -28,59 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.APELLIDOS)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.APELLIDOS)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DIRECCION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DIRECCION)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.NOMB_USU)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.NOMB_USU)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CORREO_USU)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CORREO_USU)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA_NACI)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FECHA_NACI)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TELEFONO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TELEFONO)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SEXO_USU)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SEXO_USU)
         </dd>
 
         <dt>
@@ -95,6 +47,7 @@
 
     @Html.ActionLink("Registra una Mascota", "registrarMascota", new { id = @Html.DisplayFor(model => model.ID_USU) },
                                                             new { @class = "glyphicon glyphicon-pencil" })) |
+
     @Html.ActionLink("Edita tu Informacion", "editarUsuario", "Usuario", new { id = @Html.DisplayFor(model => model.ID_USU) },
                                                             new { @class = "glyphicon glyphicon-pencil" })) |
 

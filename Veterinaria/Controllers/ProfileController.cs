@@ -146,17 +146,19 @@ namespace Veterinaria.Controllers
             return aaMascota;
         }
 
-        List<Mascota> ListMascotaxUsuario(string codigo)
+        List<MascotaOriginal> ListMascotaxUsuario(string codigo)
         {
-            List<Mascota> aMascota = new List<Mascota>();
+             MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_USU == codigo).FirstOrDefault();
+            List<MascotaOriginal> aMascota = new List<MascotaOriginal>();
             SqlCommand cmd = new SqlCommand("SP_LISTAMASCOTAXUSUARIO", cn);
             cmd.Parameters.AddWithValue("@USU", codigo);
             cmd.CommandType = CommandType.StoredProcedure;
             cn.Open();
+            
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                aMascota.Add(new Mascota()
+                aMascota.Add(new MascotaOriginal()
                 {
                     ID_MASC = dr[0].ToString(),
                     NOMBRE = dr[1].ToString(),
@@ -198,9 +200,7 @@ namespace Veterinaria.Controllers
         public ActionResult registrarMascota(string id)
         {
             MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
-
             ViewBag.codigo = codigoCorrelativoMascota() ;
-            ViewBag.usuario = new SelectList(ListUsuario(), "ID_USU", "NOMBRES");
             return View(mascO);
         }
 
@@ -209,18 +209,15 @@ namespace Veterinaria.Controllers
         {
             List<SqlParameter> parametros = new List<SqlParameter>() {
                 new SqlParameter(){ParameterName="@IDMASC",SqlDbType=SqlDbType.Char, Value=objU.ID_MASC},
-                   new SqlParameter(){ParameterName="@NOMBRE",SqlDbType=SqlDbType.VarChar, Value=objU.NOMBRE},
+                new SqlParameter(){ParameterName="@NOMBRE",SqlDbType=SqlDbType.VarChar, Value=objU.NOMBRE},
                 new SqlParameter(){ParameterName="@ANIMAL",SqlDbType=SqlDbType.VarChar, Value=objU.ANIMAL},
                 new SqlParameter(){ParameterName="@RAZA",SqlDbType=SqlDbType.VarChar, Value=objU.RAZA},
                 new SqlParameter(){ParameterName="@EDAD",SqlDbType=SqlDbType.VarChar, Value=objU.EDAD},
                 new SqlParameter(){ParameterName="@FECHANA",SqlDbType=SqlDbType.Date, Value=objU.FECHA_NACI},
                 new SqlParameter(){ParameterName="@IDUSU",SqlDbType=SqlDbType.Char, Value=objU.ID_USU}
-
-            };
-            
+            };           
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOMASCOTA", parametros);
             ViewBag.codigo = codigoCorrelativoMascota();
-            ViewBag.usuario = new SelectList(ListUsuario(), "ID_USU", "NOMBRES");
             if (ModelState.IsValid) { 
             return View("Correcto");
             }
@@ -228,8 +225,8 @@ namespace Veterinaria.Controllers
         }
         public ActionResult listadoMascotaxUsuario(string id)
         {
-            MascotaOriginal peliO = ListMascotaOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
-            return View(ListMascotaxUsuario(""));
+            MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
+            return View(ListMascotaxUsuario(id));
         }
     }
 }
