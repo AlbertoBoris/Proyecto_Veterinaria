@@ -117,12 +117,12 @@ namespace Veterinaria.Controllers
             if (s2 <= 9)
             {
                 s2++;
-                codigo = "M00" + s2;
+                codigo = "M0" + s2;
             }
             else if (s2 >= 99)
             {
                 s2++;
-                codigo = "M0" + s2;
+                codigo = "M" + s2;
             }
 
             return codigo;

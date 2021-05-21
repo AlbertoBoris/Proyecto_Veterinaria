@@ -199,9 +199,9 @@ namespace Veterinaria.Controllers
 
         public ActionResult registrarMascota(string id)
         {
-            MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
+            ViewBag.usu = id;
             ViewBag.codigo = codigoCorrelativoMascota() ;
-            return View(mascO);
+            return View(new MascotaOriginal());
         }
 
         [HttpPost]
@@ -218,10 +218,7 @@ namespace Veterinaria.Controllers
             };           
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOMASCOTA", parametros);
             ViewBag.codigo = codigoCorrelativoMascota();
-            if (ModelState.IsValid) { 
-            return View("Correcto");
-            }
-            return View("registrarMascota");
+            return RedirectToAction("IndexUsuario");
         }
         public ActionResult listadoMascotaxUsuario(string id)
         {

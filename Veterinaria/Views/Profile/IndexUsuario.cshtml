@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
 
-<h2>BIENVENIDO(A) @ViewBag.nombre</h2>
+<h2>Bienvenido(a) @ViewBag.nombre</h2>
 
-<div>
+
 
     <hr />
     <dl class="dl-horizontal">
@@ -54,4 +54,3 @@
     @Html.ActionLink("Lista de Mascotas", "listadoMascotaxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) },
                                                             new { @class = "glyphicon glyphicon-pencil" }))
 
-</div>
