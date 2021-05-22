@@ -90,6 +90,85 @@ namespace Veterinaria.Controllers
             return aUsuario;
         }
 
+
+        List<PedidoProd> ListPedidoProd()
+        {
+            List<PedidoProd> aPedido = new List<PedidoProd>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOPROD", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aPedido.Add(new PedidoProd()
+                {
+                    ID_PEDI = dr[0].ToString(),
+                    FECHA_PEDI = DateTime.Parse(dr[1].ToString()),
+                    ID_USU = dr[2].ToString(),
+                    ID_PROD = dr[3].ToString(),
+                    ID_ESTA = dr[4].ToString(),
+                    CONTADOR = int.Parse(dr[5].ToString()),
+                    IMPORTE = double.Parse(dr[6].ToString())
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aPedido;
+        }
+
+        List<PedidoProdOriginal> ListPedidoProdOriginal()
+        {
+            List<PedidoProdOriginal> aPedido = new List<PedidoProdOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOPRODORIGINAL", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aPedido.Add(new PedidoProdOriginal()
+                {
+                    ID_PEDI = dr[0].ToString(),
+                    FECHA_PEDI = DateTime.Parse(dr[1].ToString()),
+                    ID_USU = dr[2].ToString(),
+                    ID_PROD = dr[3].ToString(),
+                    ID_ESTA = dr[4].ToString(),
+                    CONTADOR = int.Parse(dr[5].ToString()),
+                    IMPORTE = double.Parse(dr[6].ToString())
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aPedido;
+        }
+
+        List<PedidoProdOriginal> ListPedidoProdxUsuario(string codigo)
+        {
+            PedidoProdOriginal mascO = ListPedidoProdOriginal().Where(x => x.ID_USU == codigo).FirstOrDefault();
+            List<PedidoProdOriginal> aPedido = new List<PedidoProdOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOXUSUARIO", cn);
+            cmd.Parameters.AddWithValue("@USU", codigo);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aPedido.Add(new PedidoProdOriginal()
+                {
+                    ID_PEDI = dr[0].ToString(),
+                    FECHA_PEDI = DateTime.Parse(dr[1].ToString()),
+                    ID_USU = dr[2].ToString(),
+                    ID_PROD = dr[3].ToString(),
+                    ID_ESTA = dr[4].ToString(),
+                    CONTADOR = int.Parse(dr[5].ToString()),
+                    IMPORTE = double.Parse(dr[6].ToString())
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aPedido;
+        }
+
         /**** Registrar Mascota ****/
 
         string codigoCorrelativoMascota()
@@ -224,6 +303,12 @@ namespace Veterinaria.Controllers
         {
             MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
             return View(ListMascotaxUsuario(id));
+        }
+
+        public ActionResult listadoPedidoProdxUsuario(string id)
+        {
+            PedidoProdOriginal mascO = ListPedidoProdOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
+            return View(ListPedidoProdxUsuario(id));
         }
     }
 }

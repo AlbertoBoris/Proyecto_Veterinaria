@@ -125,14 +125,17 @@
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
+    <Compile Include="Controllers\TiendaProductoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PedidoProd.cs" />
     <Compile Include="Models\Distrito.cs" />
     <Compile Include="Models\Horario.cs" />
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\MascotaOriginal.cs" />
+    <Compile Include="Models\PedidoProdOriginal.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\ProductoOriginal.cs" />
     <Compile Include="Models\Servicio.cs" />
@@ -268,6 +271,9 @@
     <Content Include="Views\Profile\listadoMascotaxUsuario.cshtml" />
     <Content Include="Views\Producto\editarProducto.cshtml" />
     <Content Include="Views\Producto\detalleProducto.cshtml" />
+    <Content Include="Views\TiendaProducto\listadoProductoPag.cshtml" />
+    <Content Include="Views\TiendaProducto\registroPedido.cshtml" />
+    <Content Include="Views\Profile\listadoPedidoProdxUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

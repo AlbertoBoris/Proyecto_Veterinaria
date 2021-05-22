@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Veterinaria.Models.PedidoProdOriginal>
+
+@{
+    ViewBag.Title = "listadoPedidoProdxUsuario";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>Lista de Pedidos del Usuario</h2>
+<h4>*Los Pedidos expiran en 24 Horas si no son pagados*</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_PEDI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_PEDI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_PROD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CONTADOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMPORTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_ESTA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_PEDI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FECHA_PEDI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_PROD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CONTADOR)
+    </td>
+    <td>
+        S/.@Html.DisplayFor(modelItem => item.IMPORTE)
+    </td>
+    <td style="color:green">
+        @Html.DisplayFor(modelItem => item.ID_ESTA)
+    </td>
+</tr>
+}
+
+</table>
