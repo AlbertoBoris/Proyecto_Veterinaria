@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
 }
 
-<h2>editarMascota</h2>
+<h2>Editar Mascota</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>MascotaOriginal</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -81,6 +80,3 @@
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "listadoMascota")
-</div>

@@ -6,9 +6,11 @@
 }
 
 
-<h2>BIENVENIDO(A) @ViewBag.nombre</h2>
+<h2>Bienvenido(a) @ViewBag.nombre</h2>
 
-<div>
+
+<div style="float:left; width: 25%; margin-left:2%">
+    <h5 class="m-0 font-weight-bold text-primary">Tus Datos</h5>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,27 +30,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.APELLIDOS)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.APELLIDOS)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.DIRECCION)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.DIRECCION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DNI)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DNI)
         </dd>
 
         <dt>
@@ -60,43 +46,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PASS_USU)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PASS_USU)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.CORREO_USU)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CORREO_USU)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FECHA_NACI)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FECHA_NACI)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TELEFONO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TELEFONO)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SEXO_USU)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SEXO_USU)
         </dd>
 
         <dt>
@@ -109,6 +63,119 @@
 
     </dl>
 
-    
 </div>
+
+
+
+
+<!-- Card Body -->
+<div style="float:right; width:70%; margin-left:2%">
+    <!-- Area Chart -->
+
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                     aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Dropdown Header:</div>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="chart-area">
+                <canvas id="myAreaChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+<!-- Color System -->
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-primary text-white shadow">
+            <div class="card-body">
+                Primary
+                <div class="text-white-50 small">#4e73df</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-success text-white shadow">
+            <div class="card-body">
+                Success
+                <div class="text-white-50 small">#1cc88a</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-info text-white shadow">
+            <div class="card-body">
+                Info
+                <div class="text-white-50 small">#36b9cc</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-warning text-white shadow">
+            <div class="card-body">
+                Warning
+                <div class="text-white-50 small">#f6c23e</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-danger text-white shadow">
+            <div class="card-body">
+                Danger
+                <div class="text-white-50 small">#e74a3b</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-secondary text-white shadow">
+            <div class="card-body">
+                Secondary
+                <div class="text-white-50 small">#858796</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-light text-black shadow">
+            <div class="card-body">
+                Light
+                <div class="text-black-50 small">#f8f9fc</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-4">
+        <div class="card bg-dark text-white shadow">
+            <div class="card-body">
+                Dark
+                <div class="text-white-50 small">#5a5c69</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+
+
 

@@ -8,30 +8,29 @@
 <h2>Lista de Servicios</h2>
 
 <p>
-    @Html.ActionLink("Agregar Servicio", "registroServicio", "Servicio")
+    <button type="button" class="btn btn-light"> @Html.ActionLink("Agregar un Servicio", "registroServicio", "Servicio") </button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_SERV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NOMB_SERV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRECIO_SERV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DESC_SERV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_HORAR)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECH_SERV)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_SERV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMB_SERV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRECIO_SERV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_HORAR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECH_SERV)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
 @foreach (var item in Model) {
     <tr>
@@ -45,18 +44,15 @@
             @Html.DisplayFor(modelItem => item.PRECIO_SERV)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DESC_SERV)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ID_HORAR)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FECH_SERV)
         </td>
         <td>
-            @Html.ActionLink("Editar", "editarServicio", new {  id=item.ID_SERV  }) |
-            @Html.ActionLink("Detalles", "detalleServicio", new { id = item.ID_SERV }) |
-            @Html.ActionLink("Eliminar", "eliminarServicio", new {  id = item.ID_SERV  })
+            @Html.ActionLink("Ed.", "editarServicio", new {  id=item.ID_SERV  }) |
+            @Html.ActionLink("Det.", "detalleServicio", new { id = item.ID_SERV }) |
+            @Html.ActionLink("Eli.", "eliminarServicio", new {  id = item.ID_SERV  })
         </td>
     </tr>
 }

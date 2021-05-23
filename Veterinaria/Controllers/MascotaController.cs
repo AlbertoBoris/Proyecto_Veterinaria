@@ -112,25 +112,49 @@ namespace Veterinaria.Controllers
             dr.Close();
             cn.Close();
 
-            String s = codigo.Substring(2, 2);
+            string s = codigo.Substring(1, 7);
             int s2 = int.Parse(s);
-            if (s2 <= 9)
+            if (s2 < 9)
             {
                 s2++;
-                codigo = "M0" + s2;
+                codigo = "M000000" + s2;
+            }
+            else if (s2 >= 9)
+            {
+                s2++;
+                codigo = "M00000" + s2;
             }
             else if (s2 >= 99)
             {
                 s2++;
+                codigo = "M0000" + s2;
+            }
+            else if (s2 >= 999)
+            {
+                s2++;
+                codigo = "M000" + s2;
+            }
+            else if (s2 >= 9999)
+            {
+                s2++;
+                codigo = "M00" + s2;
+            }
+            else if (s2 >= 99999)
+            {
+                s2++;
+                codigo = "M0" + s2;
+            }
+            else if (s2 >= 999999)
+            {
+                s2++;
                 codigo = "M" + s2;
             }
-
             return codigo;
         }
 
-        /*VISTAS DEL CONTROLADOR*/
+            /*VISTAS DEL CONTROLADOR*/
 
-        public ActionResult Index()
+            public ActionResult Index()
         {
             return View();
         }

@@ -6,73 +6,76 @@
 }
 
 <h2>Lista de usuarios</h2>
-<br />
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_USU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NOMBRES)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NOMB_USU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PASS_USU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CORREO_USU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_NACI)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SEXO_USU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ID_DIST)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<p>
+    <button type="button" class="btn btn-light"> @Html.ActionLink("Agregar un Usuario", "registrarUsuario", "Usuario") </button>
+</p>
+<table class="table table-bordered">
+    <thead class="thead-light">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_USU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NOMBRES)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NOMB_USU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PASS_USU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CORREO_USU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FECHA_NACI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SEXO_USU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_DIST)
-            </td>
-            <td>
-                @Html.ActionLink(" ", "editarUsuario", new { id = item.ID_USU },
-                                                            new { @class = "glyphicon glyphicon-pencil" })
-                @Html.ActionLink(" ", "detalleUsuario", new { id = item.ID_USU },
-                                                    new { @class = "glyphicon glyphicon-plus-sign" })
-                @Html.ActionLink(" ", "eliminarUsuario", new { id = item.ID_USU },
-                                                        new { @class = "glyphicon glyphicon-trash" })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_USU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMBRES)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOMB_USU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PASS_USU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CORREO_USU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA_NACI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SEXO_USU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_DIST)
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_USU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMBRES)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMB_USU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PASS_USU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CORREO_USU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FECHA_NACI)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SEXO_USU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_DIST)
+                </td>
+                <td>
+                    @Html.ActionLink("Ed ", "editarUsuario", new { id = item.ID_USU },
+                                                                new { @class = "glyphicon glyphicon-pencil" })|
+                    @Html.ActionLink("Det", "detalleUsuario", new { id = item.ID_USU },
+                                                        new { @class = "glyphicon glyphicon-plus-sign" })|
+                    @Html.ActionLink("Eli", "eliminarUsuario", new { id = item.ID_USU },
+                                                            new { @class = "glyphicon glyphicon-trash" })|
+                </td>
+            </tr>
+        }
 
 </table>

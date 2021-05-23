@@ -305,7 +305,7 @@ namespace Veterinaria.Controllers
                 new SqlParameter(){ParameterName="@CONT",SqlDbType=SqlDbType.Int, Value=objP.CONTADOR},
                 new SqlParameter(){ParameterName="@IMPORT",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
             };
-
+            ViewBag.total = objP.CONTADOR;
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOPEDIDOPROD", parameters);
             return RedirectToAction("listadoProductoPag");
         }

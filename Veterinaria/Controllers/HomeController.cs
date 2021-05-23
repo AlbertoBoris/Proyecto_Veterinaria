@@ -156,6 +156,11 @@ namespace Veterinaria.Controllers
                     };
                 }
 
+                if (usu == null)
+                {
+                    return RedirectToAction("Index", new { message = "Usuario o Contraseña Incorrecto" });
+                }
+
                 if (usu.ID_USU != null)
                 {
                     if (usu.ID_USU == "U0000001")
@@ -163,12 +168,15 @@ namespace Veterinaria.Controllers
                         FormsAuthentication.SetAuthCookie(usu.ID_USU, true);
                         return RedirectToAction("Index", "Profile", new { n = usu.NOMB_USU, i = usu.ID_USU });
                     }
+                    if (usu.ID_USU == "")
+                    {
+                        return RedirectToAction("Index", new { message = "Llene los campos" });
+                    }                  
                     else
                     {
                         FormsAuthentication.SetAuthCookie(usu.ID_USU, true);
                         return RedirectToAction("IndexUsuario", "Profile", new { n = usu.NOMB_USU, i = usu.ID_USU });
-                    }
-
+                    }                  
                 }
                 else
                 {

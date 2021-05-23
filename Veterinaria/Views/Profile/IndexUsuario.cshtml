@@ -43,59 +43,79 @@
     </div>
 </div>
 
+<div style="width: 50%; float:left">
 
+    <h3>Bienvenido(a) @ViewBag.nombre</h3>
 
-<h2>Bienvenido(a) @ViewBag.nombre</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.ID_USU)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRES)
+        </dt>
 
-<hr />
-<dl class="dl-horizontal">
-    <dt>
-        @Html.DisplayNameFor(model => model.ID_USU)
-    </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRES)
+        </dd>
 
-    <dd>
-        @Html.DisplayFor(model => model.ID_USU)
-    </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMB_USU)
+        </dt>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.NOMBRES)
-    </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NOMB_USU)
+        </dd>
 
-    <dd>
-        @Html.DisplayFor(model => model.NOMBRES)
-    </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_DIST)
+        </dt>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.NOMB_USU)
-    </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID_DIST)
+        </dd>
 
-    <dd>
-        @Html.DisplayFor(model => model.NOMB_USU)
-    </dd>
+    </dl>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.ID_DIST)
-    </dt>
+</div>
 
-    <dd>
-        @Html.DisplayFor(model => model.ID_DIST)
-    </dd>
+       <div style="width:49%; float: right; margin-bottom: 3px">
+           <h3>Panel de Control de Usuario:</h3>
+           <div style="width:50%; background-color: #4e73df; height: 70px; float: left; border-style: solid; border-radius: 7px; border-color: #1849AB">
+               <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/2809/2809814.png" alt="Alternate Text" />
+               <br />
+               <a style="color:white; padding-left: 20px" @Html.ActionLink("Registra tus Mascotas", "registrarMascota") </a>
+           </div>
 
-</dl>
+           <div style="width:49%; background-color: #4e73df; height: 70px; float: right; border-style: solid; border-radius: 7px; border-color: #1849AB">
+               <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/943/943579.png" alt="Alternate Text" />
+               <br />
+               <a style="color:white; padding-left: 20px" @Html.ActionLink("Edita tu Informacion", "editarUsuario", "Usuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
+           </div>
+       </div>
 
-@Html.ActionLink("Registra una Mascota", "registrarMascota", new { id = @Html.DisplayFor(model => model.ID_USU) },
-                                                        new { @class = "glyphicon glyphicon-pencil" })) |
+<br /><br />
 
-@Html.ActionLink("Edita tu Informacion", "editarUsuario", "Usuario", new { id = @Html.DisplayFor(model => model.ID_USU) },
-                                                        new { @class = "glyphicon glyphicon-pencil" })) |
+<div style="width:49%; float: right">
+    <div style="width:50%; background-color: #4e73df; height: 70px; float: left; border-style: solid; border-radius: 7px; border-color: #1849AB">
+        <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/3460/3460335.png" alt="Alternate Text" />
+        <br />
+        <a style="color:white; padding-left: 20px" @Html.ActionLink("Lista de Mascotas", "listadoMascotaxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
+    </div>
 
-@Html.ActionLink("Lista de Mascotas", "listadoMascotaxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) },
-                                                        new { @class = "glyphicon glyphicon-pencil" })) |
+    <div style="width:49%; background-color: #4e73df; height: 70px; float: right; border-style: solid; border-radius: 7px; border-color: #1849AB">
+        <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/2898/2898378.png" alt="Alternate Text" />
+        <br />
+        <a style="color:white; padding-left: 20px" @Html.ActionLink("Historial de Pedidos", "listadoPedidoProdxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
+    </div>
+</div>
 
-@Html.ActionLink("Edita tu Informacion", "listadoPedidoProdxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) },
-                                                        new { @class = "glyphicon glyphicon-pencil" })) |
 <br />
 <section id="cuerpo">
 

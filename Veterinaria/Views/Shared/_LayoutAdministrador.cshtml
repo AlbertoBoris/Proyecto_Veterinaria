@@ -1,119 +1,258 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CiberPeds - Admin</title>
+
     @Scripts.Render("~/bundles/modernizr")
-    <link href="~/Content/estiloAdmin.css" rel="stylesheet" />
+  
+
+    <!-- Custom fonts for this template-->
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
-<body>
 
-    
+<body id="page-top">
 
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/Profile/Index">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Ciberpets </div>
+            </a>
 
-    <div id="container">
-        <br />
-        <div id="contenido">
-            <div id="banner">
-                <nav id="menuAdmin">
-                    <ul class="nav">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li>@Html.ActionLink("Inicio", "Index", "Profile")</li>
-                            <li>
-                                <a href="#">USUARIOS</a>
-                                <ul>
-                                    <li>@Html.ActionLink("Registro de Usuarios", "registrarUsuario", "Usuario")</li>
-                                    <li>@Html.ActionLink("Lista de Usuarios", "listadoUsuario", "Usuario")</li>
-                                    <li>@Html.ActionLink("Lista de Mascotas", "listadoMascota", "Mascota")</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Productos</a>
-                                <ul>
-                                    <li>@Html.ActionLink("Registro de Productos", "registroProducto", "Producto")</li>
-                                    <li>@Html.ActionLink("Lista de Productos", "listadoProducto", "Producto")</li>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Servicios</a>
-                                <ul>
-                                    <li>@Html.ActionLink("Registro de Servicios", "registroServicio", "Servicio")</li>
-                                    <li>@Html.ActionLink("Lista de Servicios", "listadoServicio", "Servicio")</li>
-                                </ul>
-                            </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/Profile/Index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
 
-                            <li>@Html.ActionLink("SALIR", "Logout", "Home")</li>
-                        }
-                    </ul>
-                </nav>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Mantenimientos
             </div>
 
-            <br />
-            <br />
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Usuarios y Mascotas</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Administrar Usuarios:</h6>
+                        <a class="collapse-item" href="/Usuario/listadoUsuario">Lista de Usuarios</a>
+                        <a class="collapse-item" href="/Usuario/registrarUsuario">Registrar Usuario</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Administrar Mascotas:</h6>
+                        <a class="collapse-item" href="/Mascota/listadoMascota">Lista de Mascotas</a>
+                        <a class="collapse-item" href="/Mascota/registrarMascota">Registrar Mascota</a>
+                    </div>
+                </div>
+            </li>
 
-            <section>
-                @RenderBody()
-            </section>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                   aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Productos y Servicios</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Administrar Productos:</h6>
+                        <a class="collapse-item" href="/Producto/listadoProducto">Lista de Productos</a>
+                        <a class="collapse-item" href="/Producto/registroProducto">Registrar Producto</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Administrar Servicios:</h6>
+                        <a class="collapse-item" href="/Servicio/listadoServicio">Lista de Servicios</a>
+                        <a class="collapse-item" href="/Servicio/registroServicio">Registrar Servicio</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Heading -->
+            <div class="sidebar-heading">
+
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                   aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Pedidos</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Mantenimiento:</h6>
+                        <a class="collapse-item" href="utilities-color.html"></a>
+                        <a class="collapse-item" href="utilities-border.html"></a>
+                    </div>
+                </div>
+            </li>
 
 
 
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-            <!--****** Carrusel******* -->
-            <div id="carrusel">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+            <!-- Main Content -->
+            <div id="content">
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item imgCarrusel active">
-                            <img src="~/Images/Carrusel/banner1-mascotas.jpg" alt="Mascota" style="width: 100%;">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                   aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
                         </div>
+                    </form>
 
-                        <div class="item imgCarrusel">
-                            <img src="~/Images/Carrusel/banner2-mascotas.jpg" alt="Perro" style="width: 100%;">
-                        </div>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
 
-                        <div class="item imgCarrusel">
-                            <img src="~/Images/Carrusel/banner3-mascotas.jpg" alt="Gato" style="width:100%;">
-                        </div>
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                 aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                               placeholder="Search for..." aria-label="Search"
+                                               aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a role="button">
+                                <button class="btn btn-primary" type="button">
+                                    <a style="color:white" @Html.ActionLink("Cerrar Sesion", "Logout", "Home")</a>
+                                </button>
+                            </a>
+
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div style="width:100%">
+
+                        @RenderBody()
+
                     </div>
 
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+
+
+
+                    <!-- /.container-fluid -->
+
                 </div>
+                <!-- End of Main Content -->
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; CiberPets 2021</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
             </div>
+            <!-- End of Content Wrapper -->
 
-
-
-
-
-            <footer>
-                <img class="foot" src="~/Images/principal/jottlyfooterstyles.png" alt="Footer" />
-            </footer>
         </div>
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="~/Content/js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="~/Content/vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="~/Content/js/demo/chart-area-demo.js"></script>
+        <script src="~/Content/js/demo/chart-pie-demo.js"></script>
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
-   </div>
 </body>
+
 </html>
