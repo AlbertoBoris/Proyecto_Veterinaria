@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MascotaController.cs" />
+    <Compile Include="Controllers\TiendaServicioController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
@@ -136,6 +137,8 @@
     <Compile Include="Models\Mascota.cs" />
     <Compile Include="Models\MascotaOriginal.cs" />
     <Compile Include="Models\PedidoProdOriginal.cs" />
+    <Compile Include="Models\PedidoSer.cs" />
+    <Compile Include="Models\PedidoSerOriginal.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\ProductoOriginal.cs" />
     <Compile Include="Models\Servicio.cs" />
@@ -2122,6 +2125,8 @@
     <Content Include="Views\TiendaProducto\listadoProductoPag.cshtml" />
     <Content Include="Views\TiendaProducto\registroPedido.cshtml" />
     <Content Include="Views\Profile\listadoPedidoProdxUsuario.cshtml" />
+    <Content Include="Views\PedidoSer\listadoServicioPag.cshtml" />
+    <Content Include="Views\Profile\listadoPedidoSerxUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

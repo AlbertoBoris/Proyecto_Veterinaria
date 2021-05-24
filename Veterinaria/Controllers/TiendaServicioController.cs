@@ -15,13 +15,12 @@ using System.Web.Mvc;
 
 using System.Web.Services.Description;
 
-
 namespace Veterinaria.Controllers
 {
-    public class TiendaProductoController : Controller
+    public class PedidoSerController : Controller
     {
         SqlConnection cn = new SqlConnection(ConfigurationManager
-                           .ConnectionStrings["cnx"].ConnectionString);
+                            .ConnectionStrings["cnx"].ConnectionString);
 
         List<Usuario> ListUsuario()
         {
@@ -53,80 +52,73 @@ namespace Veterinaria.Controllers
             return aUsuario;
         }
 
-        List<Producto> ListProducto()
+        List<Servicio> ListServicio()
         {
-            List<Producto> aProducto = new List<Producto>();
-            SqlCommand cmd = new SqlCommand("SP_LISTAPRODUCTO", cn);
+            List<Servicio> aServicio = new List<Servicio>();
+            SqlCommand cmd = new SqlCommand("SP_LISTASERVICIO", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                aProducto.Add(new Producto()
+                aServicio.Add(new Servicio()
                 {
-                    ID_PROD = dr[0].ToString(),
-                    NOMB_PROD = dr[1].ToString(),
-                    PREC_PROD = double.Parse(dr[2].ToString()),
-                    STOCK = int.Parse(dr[3].ToString()),
-                    SERIE = dr[4].ToString(),
-                    MARCA = dr[5].ToString(),
-                    PROV_PROD = dr[6].ToString(),
-                    DESC_PROD = dr[7].ToString(),
-                    DESC_HTML = dr[8].ToString(),
-                    FOTO = dr[9].ToString()
+                    ID_SERV = dr[0].ToString(),
+                    NOMB_SERV = dr[1].ToString(),
+                    PRECIO_SERV = double.Parse(dr[2].ToString()),
+                    DESC_SERV = dr[3].ToString(),
+                    ID_HORAR = dr[4].ToString(),
+                    FECH_SERV = DateTime.Parse(dr[5].ToString())
                 });
             }
             dr.Close();
             cn.Close();
-            return aProducto;
+            return aServicio;
         }
 
-        List<ProductoOriginal> ListProductoOriginal()
+        List<ServicioOriginal> ListServicioOriginal()
         {
-            List<ProductoOriginal> aProducto = new List<ProductoOriginal>();
-            SqlCommand cmd = new SqlCommand("SP_LISTAPRODUCTOORIGINAL", cn);
+            List<ServicioOriginal> aServicio = new List<ServicioOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTASERVICIOORIGINAL", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                aProducto.Add(new ProductoOriginal()
+                aServicio.Add(new ServicioOriginal()
                 {
-                    ID_PROD = dr[0].ToString(),
-                    NOMB_PROD = dr[1].ToString(),
-                    PREC_PROD = double.Parse(dr[2].ToString()),
-                    STOCK = int.Parse(dr[3].ToString()),
-                    SERIE = dr[4].ToString(),
-                    MARCA = dr[5].ToString(),
-                    PROV_PROD = dr[6].ToString(),
-                    DESC_PROD = dr[7].ToString(),
-                    DESC_HTML = dr[8].ToString(),
-                    FOTO = dr[9].ToString()
+                    ID_SERV = dr[0].ToString(),
+                    NOMB_SERV = dr[1].ToString(),
+                    PRECIO_SERV = double.Parse(dr[2].ToString()),
+                    DESC_SERV = dr[3].ToString(),
+                    ID_HORAR = dr[4].ToString(),
+                    FECH_SERV = DateTime.Parse(dr[5].ToString())
                 });
             }
             dr.Close();
             cn.Close();
-            return aProducto;
+            return aServicio;
         }
 
-        List<PedidoProd> ListPedidoProd()
+        List<PedidoSer> ListPedidoSer()
         {
-            List<PedidoProd> aPedido = new List<PedidoProd>();
-            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOPROD", cn);
+            List<PedidoSer> aPedido = new List<PedidoSer>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOSER", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                aPedido.Add(new PedidoProd()
+                aPedido.Add(new PedidoSer()
                 {
                     ID_PEDI = dr[0].ToString(),
                     FECHA_PEDI = DateTime.Parse(dr[1].ToString()),
                     ID_USU = dr[2].ToString(),
-                    ID_PROD = dr[3].ToString(),
+                    ID_SERV = dr[3].ToString(),
                     ID_ESTA = dr[4].ToString(),
-                    CONTADOR = int.Parse(dr[5].ToString()),
-                    IMPORTE = double.Parse(dr[6].ToString())
+                    ID_HORAR = dr[5].ToString(),
+                    ID_HORA = dr[6].ToString(),
+                    IMPORTE = double.Parse(dr[7].ToString())
                 });
             }
             dr.Close();
@@ -134,24 +126,25 @@ namespace Veterinaria.Controllers
             return aPedido;
         }
 
-        List<PedidoProdOriginal> ListPedidoProdOriginal()
+        List<PedidoSerOriginal> ListPedidoSerOriginal()
         {
-            List<PedidoProdOriginal> aPedido = new List<PedidoProdOriginal>();
-            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOPRODORIGINAL", cn);
+            List<PedidoSerOriginal> aPedido = new List<PedidoSerOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOSERORIGINAL", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                aPedido.Add(new PedidoProdOriginal()
+                aPedido.Add(new PedidoSerOriginal()
                 {
                     ID_PEDI = dr[0].ToString(),
                     FECHA_PEDI = DateTime.Parse(dr[1].ToString()),
                     ID_USU = dr[2].ToString(),
-                    ID_PROD = dr[3].ToString(),
+                    ID_SERV = dr[3].ToString(),
                     ID_ESTA = dr[4].ToString(),
-                    CONTADOR = int.Parse(dr[5].ToString()),
-                    IMPORTE = double.Parse(dr[6].ToString())
+                    ID_HORAR = dr[5].ToString(),
+                    ID_HORA = dr[6].ToString(),
+                    IMPORTE = double.Parse(dr[7].ToString())
                 });
             }
             dr.Close();
@@ -163,7 +156,7 @@ namespace Veterinaria.Controllers
         string codigoCorrelativo()
         {
             string codigo = null;
-            SqlCommand cmd = new SqlCommand("SP_ULTIMOCODIGOPEDIDOPROD", cn);
+            SqlCommand cmd = new SqlCommand("SP_ULTIMOCODIGOPEDIDOSER", cn);
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -224,12 +217,12 @@ namespace Veterinaria.Controllers
         }
         public ActionResult listadoProducto()
         {
-            return View(ListProducto());
+            return View(ListServicio());
         }
 
-        public ActionResult listadoProductoPag(int p = 0)
+        public ActionResult listadoServicioPag(int p = 0)
         {
-            List<Producto> aProducto = ListProducto();
+            List<Servicio> aProducto = ListServicio();
             int filas = 5;
             int n = aProducto.Count;
             int pag = n % filas > 0 ? n / filas + 1 : n / filas;
@@ -264,16 +257,16 @@ namespace Veterinaria.Controllers
             return mensaje;
         }
 
-        public ActionResult registroPedido(string id, double p)
+        public ActionResult registroServicio(string id, double p)
         {
             ViewBag.prod = id;
             ViewBag.prec = p;
             ViewBag.codigo = codigoCorrelativo();
-            return View(new PedidoProdOriginal());
+            return View(new PedidoSerOriginal());
         }
 
         [HttpPost]
-        public ActionResult registroPedido(PedidoProdOriginal objP)
+        public ActionResult registroServicio(PedidoSerOriginal objP)
         {
 
             List<SqlParameter> parameters = new List<SqlParameter>()
@@ -283,12 +276,12 @@ namespace Veterinaria.Controllers
                 new SqlParameter(){ParameterName="@IDUSU",SqlDbType=SqlDbType.Char, Value=objP.ID_USU},
                 new SqlParameter(){ParameterName="@IDPRO",SqlDbType=SqlDbType.Char, Value=objP.ID_PEDI},
                 new SqlParameter(){ParameterName="@IDESTA",SqlDbType=SqlDbType.Char, Value=objP.ID_ESTA},
-                new SqlParameter(){ParameterName="@CONT",SqlDbType=SqlDbType.Int, Value=objP.CONTADOR},
+                new SqlParameter(){ParameterName="@HORAR",SqlDbType=SqlDbType.Int, Value=objP.ID_HORAR},
+                new SqlParameter(){ParameterName="@HORA",SqlDbType=SqlDbType.Int, Value=objP.ID_HORA},
                 new SqlParameter(){ParameterName="@IMPORT",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
             };
-            ViewBag.total = objP.CONTADOR;
-            ViewBag.mensaje = CRUD("SP_MANTENIMIENTOPEDIDOPROD", parameters);
-            return RedirectToAction("listadoProductoPag");
+            ViewBag.mensaje = CRUD("SP_MANTENIMIENTOPEDIDOSER", parameters);
+            return RedirectToAction("listadoServicioPag");
         }
     }
 }

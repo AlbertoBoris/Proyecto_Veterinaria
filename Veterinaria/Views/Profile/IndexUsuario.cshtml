@@ -43,12 +43,14 @@
     </div>
 </div>
 
-<div style="width: 50%; float:left">
+<div style="width: 50%; float:left; margin-left: 10px">
 
     <h3>Bienvenido(a) @ViewBag.nombre</h3>
 
+    <img style="width: 20%; float:left" src="https://th.bing.com/th/id/OIP.130JlLu_GSzrXkjgW3swqAHaHa?pid=ImgDet&rs=1" alt="Alternate Text" />
+
     <hr />
-    <dl class="dl-horizontal">
+    <dl style="float: right; margin-right: 132px" class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.ID_USU)
         </dt>
@@ -90,13 +92,13 @@
            <div style="width:50%; background-color: #4e73df; height: 70px; float: left; border-style: solid; border-radius: 7px; border-color: #1849AB">
                <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/2809/2809814.png" alt="Alternate Text" />
                <br />
-               <a style="color:white; padding-left: 20px" @Html.ActionLink("Registra tus Mascotas", "registrarMascota") </a>
+               <a style="color:white; padding-left: 20px" @Html.ActionLink("Registra tus Mascotas", "registrarMascota", new { id = @Html.DisplayFor(model => model.ID_USU) }) </a>
            </div>
 
            <div style="width:49%; background-color: #4e73df; height: 70px; float: right; border-style: solid; border-radius: 7px; border-color: #1849AB">
                <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/943/943579.png" alt="Alternate Text" />
                <br />
-               <a style="color:white; padding-left: 20px" @Html.ActionLink("Edita tu Informacion", "editarUsuario", "Usuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
+               <a style="color:white; padding-left: 20px"> Edita tu Informacion </a>
            </div>
        </div>
 
@@ -111,8 +113,9 @@
 
     <div style="width:49%; background-color: #4e73df; height: 70px; float: right; border-style: solid; border-radius: 7px; border-color: #1849AB">
         <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/2898/2898378.png" alt="Alternate Text" />
-        <br />
-        <a style="color:white; padding-left: 20px" @Html.ActionLink("Historial de Pedidos", "listadoPedidoProdxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
+        <h8 style="color:white; padding-left: 20px"> *Historial de pedidos* </h8>
+        <a style="color:white; padding-left: 20px" @Html.ActionLink("Pedidos de Productos", "listadoPedidoProdxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
+        <a style="color:white; padding-left: 20px" @Html.ActionLink("Pedidos de Servicios", "listadoPedidoSerxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
     </div>
 </div>
 
@@ -160,3 +163,4 @@
 
 
 </section>
+<br /><br />   <br />

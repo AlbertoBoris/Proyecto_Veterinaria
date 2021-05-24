@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Veterinaria.Models.Servicio>
+
+@{
+    ViewBag.Title = "listadoServicioPag";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>Escoge el Servicio que Deseas: </h2>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Nombre:
+            </th>
+            <th>
+                Precio:
+            </th>
+            <th>
+                Descripcion:
+            </th>
+            <th>
+                Horario:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMB_SERV)
+                </td>
+                <td>
+                    S/ @Html.DisplayFor(modelItem => item.PRECIO_SERV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DESC_SERV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_HORAR)
+                </td>
+                <td>
+
+                    @Html.ActionLink("ADQUIRIR", "registroPedido", new { id = @item.ID_SERV, P = item.PRECIO_SERV },
+                                       new { @class = "btn btn-primary" })
+
+            </tr>
+        }
+
+</table>
