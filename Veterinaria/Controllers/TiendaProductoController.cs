@@ -230,7 +230,7 @@ namespace Veterinaria.Controllers
         public ActionResult listadoProductoPag(int p = 0)
         {
             List<Producto> aProducto = ListProducto();
-            int filas = 5;
+            int filas = 8;
             int n = aProducto.Count;
             int pag = n % filas > 0 ? n / filas + 1 : n / filas;
 
@@ -281,12 +281,11 @@ namespace Veterinaria.Controllers
                 new SqlParameter(){ParameterName="@IDPED",SqlDbType=SqlDbType.Char, Value=objP.ID_PEDI},
                 new SqlParameter(){ParameterName="@FECHA",SqlDbType=SqlDbType.DateTime, Value=objP.FECHA_PEDI},
                 new SqlParameter(){ParameterName="@IDUSU",SqlDbType=SqlDbType.Char, Value=objP.ID_USU},
-                new SqlParameter(){ParameterName="@IDPRO",SqlDbType=SqlDbType.Char, Value=objP.ID_PEDI},
+                new SqlParameter(){ParameterName="@IDPROD",SqlDbType=SqlDbType.Char, Value=objP.ID_PROD},
                 new SqlParameter(){ParameterName="@IDESTA",SqlDbType=SqlDbType.Char, Value=objP.ID_ESTA},
                 new SqlParameter(){ParameterName="@CONT",SqlDbType=SqlDbType.Int, Value=objP.CONTADOR},
-                new SqlParameter(){ParameterName="@IMPORT",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
+                new SqlParameter(){ParameterName="@IMPOR",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
             };
-            ViewBag.total = objP.CONTADOR;
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOPEDIDOPROD", parameters);
             return RedirectToAction("listadoProductoPag");
         }

@@ -96,3 +96,44 @@ ul {
 .pag {
     text-align: center;
 }
+
+#bloqueLista {
+    border-top: 1px dotted;
+    border-bottom: 1px dotted;
+    border-color: #1849AB;
+}
+
+#portadaLista {
+    float: left;
+    width: 35%;
+}
+
+#datosLista {
+    width: 65%;
+    font-size: 16px;
+}
+
+#CRUDLista {
+    width: 24%;
+    text-align: center;
+    font-size: 15px;
+}
+
+.portadaLista {
+    width: 60%;
+    border: groove;
+    border-color: #1849AB;
+    border-radius: 1px;
+    height: 340px;
+}
+
+.botonLista {
+    text-align: center;
+    width: 10%;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#paginadoListado {
+    text-align: center;
+}

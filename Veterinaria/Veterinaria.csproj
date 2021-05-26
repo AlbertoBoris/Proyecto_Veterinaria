@@ -131,6 +131,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Hora.cs" />
     <Compile Include="Models\PedidoProd.cs" />
     <Compile Include="Models\Distrito.cs" />
     <Compile Include="Models\Horario.cs" />
@@ -1883,7 +1884,7 @@
     <Content Include="Images\portada_juego\img7.jpg" />
     <Content Include="Images\portada_juego\img8.jpg" />
     <Content Include="Images\portada_juego\img9.jpg" />
-    <Content Include="Images\principal\cooltext381844845557281.png" />
+    <Content Include="Images\principal\CiberPets.png" />
     <Content Include="Images\principal\Games-Banner-1140x400.png" />
     <Content Include="Images\principal\jottlyfooterstyles.png" />
     <Content Include="Images\principal\panasonic-logo-black-and-white.png" />
@@ -2127,6 +2128,9 @@
     <Content Include="Views\Profile\listadoPedidoProdxUsuario.cshtml" />
     <Content Include="Views\PedidoSer\listadoServicioPag.cshtml" />
     <Content Include="Views\Profile\listadoPedidoSerxUsuario.cshtml" />
+    <Content Include="Views\PedidoSer\registroServicio.cshtml" />
+    <Content Include="Views\Profile\editarUsuario.cshtml" />
+    <Content Include="Views\Profile\editarMascota.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

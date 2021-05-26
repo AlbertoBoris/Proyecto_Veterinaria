@@ -15,27 +15,32 @@ namespace Veterinaria.Models
 
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre")]
+        [RegularExpression("^[a-zA-Z]{1,40}$", ErrorMessage = "Solo letras en el Campo Nombre")]
         [DisplayName("Nombre")]
         public string NOMBRE { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Animal")]
+        [RegularExpression("^[a-zA-Z]{1,40}$", ErrorMessage = "Solo letras en el Campo Animal")]
         [DisplayName("Animal")]
         public string ANIMAL { get; set; }
 
-        [Required(AllowEmptyStrings = false,ErrorMessage ="Ingrese Raza")]
-        [DisplayName("Raza")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Raza")]
+        [RegularExpression("^[a-zA-Z]{1,40}$", ErrorMessage = "Solo letras en el Campo Raza")]
 
+        [DisplayName("Raza")]
         public String RAZA { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Edad")]
+        [Range(1, 20, ErrorMessage = "La edad debe ser de 1 a 20 años")]
         [DisplayName("Edad")]
         public string EDAD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Nac.")]
         [DisplayName("Fecha de Nac.")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FECHA_NACI { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Usuario")]
         [DisplayName("Usuario")]
         public string ID_USU { get; set; }
     }

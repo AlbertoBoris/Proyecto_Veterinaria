@@ -9,24 +9,26 @@ namespace Veterinaria.Models
 {
     public class PedidoSerOriginal
     {
-        [DisplayName("Id")]
+        [DisplayName("Id Ped.")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese ID")]
         public string ID_PEDI { get; set; }
 
         [DisplayName("Fecha")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FECHA_PEDI { get; set; }
 
         [DisplayName("Usuario")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Usuario")]
         public string ID_USU { get; set; }
 
-        [DisplayName("Producto")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Producto")]
+        [DisplayName("ID Serv.")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Pedido")]
         public string ID_SERV { get; set; }
 
-        [DisplayName("Edad")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Edad")]
+        [DisplayName("Estado")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Estado")]
         public string ID_ESTA { get; set; }
 
         [DisplayName("Horario")]

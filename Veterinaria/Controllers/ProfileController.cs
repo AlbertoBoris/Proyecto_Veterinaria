@@ -90,6 +90,82 @@ namespace Veterinaria.Controllers
             return aUsuario;
         }
 
+        List<UsuarioOriginal> ListUsuarioOriginal()
+        {
+            List<UsuarioOriginal> aaUsuario = new List<UsuarioOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAUSUARIOORIGINAL", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aaUsuario.Add(new UsuarioOriginal()
+                {
+                    ID_USU = dr[0].ToString(),
+                    NOMBRES = dr[1].ToString(),
+                    APELLIDOS = dr[2].ToString(),
+                    DIRECCION = dr[3].ToString(),
+                    DNI = dr[4].ToString(),
+                    NOMB_USU = dr[5].ToString(),
+                    PASS_USU = dr[6].ToString(),
+                    CORREO_USU = dr[7].ToString(),
+                    FECHA_NACI = DateTime.Parse(dr[8].ToString()),
+                    TELEFONO = dr[9].ToString(),
+                    SEXO_USU = dr[10].ToString(),
+                    ID_DIST = dr[11].ToString(),
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aaUsuario;
+        }
+
+        List<Distrito> ListDistrito()
+        {
+            List<Distrito> aDistrito = new List<Distrito>();
+            SqlCommand cmd = new SqlCommand("SP_LISTADISTRITOS", cn);
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Distrito objP = new Distrito()
+                {
+                    ID_DIST = dr[0].ToString(),
+                    NOM_DIS = dr[1].ToString(),
+                };
+                aDistrito.Add(objP);
+            }
+
+            dr.Close();
+            cn.Close();
+            return aDistrito;
+        }
+
+        List<Mascota> ListMascota()
+        {
+            List<Mascota> aMascota = new List<Mascota>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAMASCOTA", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aMascota.Add(new Mascota()
+                {
+                    ID_MASC = dr[0].ToString(),
+                    NOMBRE = dr[1].ToString(),
+                    ANIMAL = dr[2].ToString(),
+                    RAZA = dr[3].ToString(),
+                    EDAD = dr[4].ToString(),
+                    FECHA_NACI = DateTime.Parse(dr[5].ToString()),
+                    ID_USU = dr[6].ToString(),
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aMascota;
+        }
+
 
         List<PedidoProd> ListPedidoProd()
         {
@@ -405,6 +481,43 @@ namespace Veterinaria.Controllers
             ViewBag.codigo = codigoCorrelativoMascota();
             return RedirectToAction("IndexUsuario");
         }
+
+        public ActionResult editarMascota(string id)
+        {
+            MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_MASC == id).FirstOrDefault();
+            ViewBag.usuario = new SelectList(ListUsuario(), "ID_USU", "NOMBRES");
+            return View(mascO);
+        }
+
+        [HttpPost]
+        public ActionResult editarMascota(MascotaOriginal objU)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>() {
+                new SqlParameter(){ParameterName="@IDMASC",SqlDbType=SqlDbType.Char, Value=objU.ID_MASC},
+                new SqlParameter(){ParameterName="@NOMBRE",SqlDbType=SqlDbType.VarChar, Value=objU.NOMBRE},
+                new SqlParameter(){ParameterName="@ANIMAL",SqlDbType=SqlDbType.VarChar, Value=objU.ANIMAL},
+                new SqlParameter(){ParameterName="@RAZA",SqlDbType=SqlDbType.VarChar, Value=objU.RAZA},
+                new SqlParameter(){ParameterName="@EDAD",SqlDbType=SqlDbType.VarChar, Value=objU.EDAD},
+                new SqlParameter(){ParameterName="@FECHANA",SqlDbType=SqlDbType.Date, Value=objU.FECHA_NACI},
+                new SqlParameter(){ParameterName="@IDUSU",SqlDbType=SqlDbType.Char, Value=objU.ID_USU}
+
+            };
+            ViewBag.mensaje = CRUD("SP_MANTENIMIENTOMASCOTA", parametros);
+            ViewBag.usuario = new SelectList(ListUsuario(), "ID_USU", "NOMBRES");
+            return View("IndexUsuario");
+        }
+
+        public ActionResult eliminarMascota(string id)
+        {
+            Mascota objU = ListMascota().Where(x => x.ID_MASC == id).FirstOrDefault();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter(){ParameterName="@IDMASC",SqlDbType=SqlDbType.Char, Value=objU.ID_MASC}
+            };
+            CRUD("SP_ELIMINARMASCOTA", parameters);
+            return RedirectToAction("IndexUsuario");
+        }
+
         public ActionResult listadoMascotaxUsuario(string id)
         {
             MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
@@ -421,6 +534,36 @@ namespace Veterinaria.Controllers
         {
             PedidoSerOriginal mascO = ListPedidoSerOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
             return View(ListPedidoSerxUsuario(id));
+        }
+        public ActionResult editarUsuario(string id)
+        {
+            UsuarioOriginal usuaO = ListUsuarioOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
+
+            ViewBag.distrito = new SelectList(ListDistrito(), "ID_DIST", "NOM_DIS");
+            return View(usuaO);
+        }
+
+        [HttpPost]
+        public ActionResult editarUsuario(UsuarioOriginal objU)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>() {
+                new SqlParameter(){ParameterName="@IDUSU",SqlDbType=SqlDbType.Char, Value=objU.ID_USU},
+                new SqlParameter(){ParameterName="@NOMB",SqlDbType=SqlDbType.VarChar, Value=objU.NOMBRES},
+                new SqlParameter(){ParameterName="@APE",SqlDbType=SqlDbType.VarChar, Value=objU.APELLIDOS},
+                new SqlParameter(){ParameterName="@DIREC",SqlDbType=SqlDbType.VarChar, Value=objU.DIRECCION},
+                new SqlParameter(){ParameterName="@DNI",SqlDbType=SqlDbType.VarChar, Value=objU.DNI},
+                new SqlParameter(){ParameterName="@USU",SqlDbType=SqlDbType.VarChar, Value=objU.NOMB_USU},
+                new SqlParameter(){ParameterName="@PASS",SqlDbType=SqlDbType.VarChar, Value=objU.PASS_USU},
+                new SqlParameter(){ParameterName="@CORRE",SqlDbType=SqlDbType.VarChar, Value=objU.CORREO_USU},
+                new SqlParameter(){ParameterName="@FECHANA",SqlDbType=SqlDbType.Date, Value=objU.FECHA_NACI},
+                new SqlParameter(){ParameterName="@TELE",SqlDbType=SqlDbType.VarChar, Value=objU.TELEFONO},
+                new SqlParameter(){ParameterName="@SEXO",SqlDbType=SqlDbType.VarChar, Value=objU.SEXO_USU},
+                new SqlParameter(){ParameterName="@IDDIS",SqlDbType=SqlDbType.Char, Value=objU.ID_DIST}
+
+            };
+            ViewBag.mensaje = CRUD("SP_MANTENIMIENTOUSUARIO", parametros);
+            ViewBag.distrito = new SelectList(ListDistrito(), "ID_DIST", "NOM_DIS");
+            return RedirectToAction("IndexUsuario");
         }
     }
 }

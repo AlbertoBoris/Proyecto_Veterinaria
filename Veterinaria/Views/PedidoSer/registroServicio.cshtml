@@ -1,19 +1,18 @@
-﻿@model Veterinaria.Models.PedidoProdOriginal
+﻿@model Veterinaria.Models.PedidoSerOriginal
 
 @{
-    ViewBag.Title = "registroPedido";
+    ViewBag.Title = "registroServicio";
     Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
 }
 
-<h2>Pedido de Producto</h2>
-
+<h2>Reserva tu Servicio</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Llene los Campos</h4>
+        <h4>Elige el Horario</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -27,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FECHA_PEDI, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FECHA_PEDI, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.EditorFor(model => model.FECHA_PEDI, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FECHA_PEDI, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -41,10 +40,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ID_PROD, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ID_SERV, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ID_PROD, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.prod, @readonly = "readonly"} })
-                @Html.ValidationMessageFor(model => model.ID_PROD, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ID_SERV, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.serv, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.ID_SERV, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -57,25 +56,28 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CONTADOR, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ID_HORAR, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CONTADOR, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CONTADOR, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ID_HORAR, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.horar, } })
+                @Html.ValidationMessageFor(model => model.ID_HORAR, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID_HORA, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ID_HORA, ViewBag.hora as SelectList,
+                                    "Seleccione la Hora", new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IMPORTE, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.IMPORTE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.IMPORTE, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.prec, @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.IMPORTE, "", new { @class = "text-danger" })
-                <p>Precio unitario: S/.@ViewBag.prec </p> 
             </div>
-
-            
         </div>
-
-        
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

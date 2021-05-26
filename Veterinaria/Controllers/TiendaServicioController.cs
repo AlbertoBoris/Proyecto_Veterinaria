@@ -52,6 +52,27 @@ namespace Veterinaria.Controllers
             return aUsuario;
         }
 
+        List<Hora> ListHora()
+        {
+            List<Hora> aDistrito = new List<Hora>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAHORA", cn);
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Hora objP = new Hora()
+                {
+                    ID_HORA = dr[0].ToString(),
+                    NOM_HOR = dr[1].ToString(),
+                };
+                aDistrito.Add(objP);
+            }
+
+            dr.Close();
+            cn.Close();
+            return aDistrito;
+        }
+
         List<Servicio> ListServicio()
         {
             List<Servicio> aServicio = new List<Servicio>();
@@ -257,11 +278,14 @@ namespace Veterinaria.Controllers
             return mensaje;
         }
 
-        public ActionResult registroServicio(string id, double p)
+        public ActionResult registroServicio(string id, string H, double p)
         {
-            ViewBag.prod = id;
-            ViewBag.prec = p;
+            ViewBag.serv = id;
+            ViewBag.horar = H;
+            ViewBag.prec = p;            
             ViewBag.codigo = codigoCorrelativo();
+            ViewBag.hora = new SelectList(ListHora(), "ID_HORA", "NOM_HOR");
+            
             return View(new PedidoSerOriginal());
         }
 
@@ -274,11 +298,11 @@ namespace Veterinaria.Controllers
                 new SqlParameter(){ParameterName="@IDPED",SqlDbType=SqlDbType.Char, Value=objP.ID_PEDI},
                 new SqlParameter(){ParameterName="@FECHA",SqlDbType=SqlDbType.DateTime, Value=objP.FECHA_PEDI},
                 new SqlParameter(){ParameterName="@IDUSU",SqlDbType=SqlDbType.Char, Value=objP.ID_USU},
-                new SqlParameter(){ParameterName="@IDPRO",SqlDbType=SqlDbType.Char, Value=objP.ID_PEDI},
+                new SqlParameter(){ParameterName="@IDSERV",SqlDbType=SqlDbType.Char, Value=objP.ID_SERV},
                 new SqlParameter(){ParameterName="@IDESTA",SqlDbType=SqlDbType.Char, Value=objP.ID_ESTA},
-                new SqlParameter(){ParameterName="@HORAR",SqlDbType=SqlDbType.Int, Value=objP.ID_HORAR},
-                new SqlParameter(){ParameterName="@HORA",SqlDbType=SqlDbType.Int, Value=objP.ID_HORA},
-                new SqlParameter(){ParameterName="@IMPORT",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
+                new SqlParameter(){ParameterName="@HORAR",SqlDbType=SqlDbType.Char, Value=objP.ID_HORAR},
+                new SqlParameter(){ParameterName="@HORA",SqlDbType=SqlDbType.Char, Value=objP.ID_HORA},
+                new SqlParameter(){ParameterName="@IMPOR",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
             };
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOPEDIDOSER", parameters);
             return RedirectToAction("listadoServicioPag");

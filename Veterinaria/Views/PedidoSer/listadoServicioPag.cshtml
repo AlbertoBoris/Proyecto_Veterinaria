@@ -25,27 +25,37 @@
             <th></th>
         </tr>
     </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NOMB_SERV)
-                </td>
-                <td>
-                    S/ @Html.DisplayFor(modelItem => item.PRECIO_SERV)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DESC_SERV)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID_HORAR)
-                </td>
-                <td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMB_SERV)
+            </td>
+            <td>
+                S/ @Html.DisplayFor(modelItem => item.PRECIO_SERV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESC_SERV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_HORAR)
+            </td>
+            <td>
 
-                    @Html.ActionLink("ADQUIRIR", "registroPedido", new { id = @item.ID_SERV, P = item.PRECIO_SERV },
-                                       new { @class = "btn btn-primary" })
+                @Html.ActionLink("RESERVAR", "registroServicio", new { id = @item.ID_SERV, H = item.ID_HORAR, P = item.PRECIO_SERV },
+                                   new { @class = "btn btn-primary" })
 
-            </tr>
-        }
+        </tr>
+    }
 
 </table>
+
+<div class="pag">
+    <h6>
+        @for (int i = 0; i < ViewBag.pag; i++)
+        {
+            @Html.ActionLink((i + 1).ToString(), "listadoServicioPag", new { p = i }, new { @class = "btn btn-primary" })
+        }
+    </h6>
+</div>
+

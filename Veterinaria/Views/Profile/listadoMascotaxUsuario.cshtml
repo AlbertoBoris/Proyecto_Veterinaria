@@ -60,9 +60,8 @@
                     @Html.DisplayFor(modelItem => item.ID_USU)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Editar", "editarMascota", new {  id = item.ID_MASC  }) |
+                    @Html.ActionLink("Eliminar", "eliminarMascota", new {  id=item.ID_MASC  })
                 </td>
             </tr>
         }

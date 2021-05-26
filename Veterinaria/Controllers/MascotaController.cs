@@ -236,7 +236,6 @@ namespace Veterinaria.Controllers
         public ActionResult editarMascota(string id)
         {
             MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_MASC == id).FirstOrDefault();
-
             ViewBag.usuario = new SelectList(ListUsuario(), "ID_USU", "NOMBRES");
             return View(mascO);
         }

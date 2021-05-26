@@ -98,7 +98,7 @@
            <div style="width:49%; background-color: #4e73df; height: 70px; float: right; border-style: solid; border-radius: 7px; border-color: #1849AB">
                <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/943/943579.png" alt="Alternate Text" />
                <br />
-               <a style="color:white; padding-left: 20px"> Edita tu Informacion </a>
+               <a style="color:white; padding-left: 20px" @Html.ActionLink("Edita tu Informacion", "editarUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) }) </a>
            </div>
        </div>
 

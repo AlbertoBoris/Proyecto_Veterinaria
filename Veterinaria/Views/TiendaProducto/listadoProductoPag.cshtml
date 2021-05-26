@@ -6,32 +6,37 @@
 }
 
 <h2>Elige el Producto que desees:</h2>
-
+<br />
 
 @foreach (var item in Model)
 {
 
-    <section class="lisProdu">
-
-        <img class="listIma" src="@Url.Content(item.FOTO)" />
-
-        <h5>Nombre: @item.NOMB_PROD</h5>
-        <h5>Precio: S/.@item.PREC_PROD.ToString("0.00")</h5>
-        <h5>Disponibles: @item.STOCK</h5>
-
-        <br />
+    <section class="bloque" style="width: 24%; height: 450px; float: left; margin: 5px; text-align: center;">
+        <div>
+            <img class="imgArt" style="width: 90%; height: 300px; float: left; margin-left: 10px; border-color: #1849AB; border-radius: 5px; border: 2px groove; border-width: 3px;" src="@Url.Content(@item.FOTO)" />
+        </div>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <div class="datosCompra" style="">
+            <h4 class="dato" style=" margin: 5px;">@item.NOMB_PROD</h4>
+            <p class="dato" style=" margin: 5px;">Precio: S/.@item.PREC_PROD.ToString("0.00")</p>
+            <p class="dato" style=" margin: 5px;">Disponibles: @item.STOCK</p>
+        </div>
         @Html.ActionLink("ADQUIRIR", "registroPedido", new { id = @item.ID_PROD, P = item.PREC_PROD },
-                               new { @class = "btn btn-primary" })
+                                   new { @class = "btn btn-primary" })
 
     </section>
 }
 
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
 
 <div class="pag">
     <h6>
         @for (int i = 0; i < ViewBag.pag; i++)
         {
-            @Html.ActionLink((i + 1).ToString(), "listadoProductoPag", new { p = i }, new { @class = "btn btn-success" })
+            @Html.ActionLink((i + 1).ToString(), "listadoProductoPag", new { p = i }, new { @class = "btn btn-primary" })
         }
     </h6>
 </div>
