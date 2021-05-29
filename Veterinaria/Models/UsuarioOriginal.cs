@@ -14,19 +14,19 @@ namespace Veterinaria.Models
         public string ID_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre del Usuario")]
-        [RegularExpression("^[a-zA-Z]{1,40}$", ErrorMessage = "Solo letras en el Campo Nombre")]
+        [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Nombre")]
 
         [DisplayName("NOMBRES")]
         public string NOMBRES { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Apellido del Usuario")]
-        [RegularExpression("^[a-zA-Z]{1,40}$", ErrorMessage = "Solo letras en el Campo Apellido")]
+        [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Apellido")]
 
         [DisplayName("APELLIDOS")]
         public string APELLIDOS { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Direccion del Usuario")]
-        [RegularExpression("^[a-zA-Z0-9]{1,40}$", ErrorMessage = "Ingrese una dirreccion con menos de 40 letras")]
+        [RegularExpression("^[a-zA-Z0-9]{1,60}$", ErrorMessage = "Ingrese una dirreccion con menos de 40 letras")]
 
         [DisplayName("DIRECCION")]
         public string DIRECCION { get; set; }
@@ -38,7 +38,7 @@ namespace Veterinaria.Models
         public string DNI { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nickname del Usuario")]
-        [RegularExpression("^[a-zA-Z0-9]{1,10}$", ErrorMessage = "El Nickname debe ser menos de 10 letras")]
+        [RegularExpression("^[a-zA-Z0-9]{1,15}$", ErrorMessage = "El Nickname debe ser menos de 10 letras")]
 
         [DisplayName("NICKNAME")]
         public string NOMB_USU { get; set; }
@@ -53,9 +53,9 @@ namespace Veterinaria.Models
         [DisplayName("CORREO")]
         public string CORREO_USU { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Nacimiento del Usuario")]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Nacimiento (yyyy-MM-dd)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("FECHA NACIMIENTO")]
         public DateTime FECHA_NACI { get; set; }
 
@@ -66,8 +66,7 @@ namespace Veterinaria.Models
         public string TELEFONO { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Sexo del Usuario")]
-        [RegularExpression("^[a-zA-Z]{1,40}$", ErrorMessage = "Solo letras en el Campo Sexo")]
-
+        [RegularExpression("^[a-zA-Z]{1,20}$", ErrorMessage = "Solo letras en el Campo Sexo")]
         [DisplayName("SEXO")]
         public string SEXO_USU { get; set; }
 
