@@ -20,7 +20,7 @@ namespace Veterinaria.Models
         [DisplayName("Producto")]
         public string ID_PROD { get; set; }
 
-        [DisplayName("Edad")]
+        [DisplayName("Estado")]
         public string ID_ESTA { get; set; }
 
         [DisplayName("Contador")]

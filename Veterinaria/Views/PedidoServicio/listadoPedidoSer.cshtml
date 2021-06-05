@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Veterinaria.Models.PedidoSer>
+
+@{
+    ViewBag.Title = "listadoPedidoSer";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>Lista de Pedidos de Servicios</h2>
+
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FECHA_PEDI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_USU)
+            </th>
+            <th>
+                Servicio
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IMPORTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_ESTA)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FECHA_PEDI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_USU)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_SERV)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IMPORTE)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_ESTA)
+    </td>
+    <td>
+        @Html.ActionLink("Ver      ", "detallePedido", new { id = item.ID_PEDI })|
+        @Html.ActionLink("Atender  ", "editarPedido", new { id = item.ID_PEDI })
+    </td>
+</tr>
+        }
+
+</table>

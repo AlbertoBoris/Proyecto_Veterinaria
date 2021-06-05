@@ -7,18 +7,12 @@
 
 <h2>Lista de Pedidos del Usuario</h2>
 <h4>*Los Pedidos expiran en 24 Horas si no son pagados*</h4>
-
+<img style="width: 100%" src="~/Images/principal/Estados.PNG" />
 <table class="table table-bordered">
     <thead class="thead-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID_PEDI)
-            </th>
-            <th>
                 Fecha de Registro
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ID_USU)
             </th>
             <th>
                 Servicio
@@ -30,9 +24,6 @@
                 @Html.DisplayNameFor(model => model.ID_HORA)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IMPORTE)
-            </th>
-            <th>
                 Estado
             </th>
         </tr>
@@ -40,32 +31,27 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_PEDI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FECHA_PEDI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_USU)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_SERV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_HORAR)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID_HORA)
-            </td>
-            <td>
-                S/ @Html.DisplayFor(modelItem => item.IMPORTE)
-            </td>
-            <td style="color: #4e73df">
-                @Html.DisplayFor(modelItem => item.ID_ESTA)
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FECHA_PEDI)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_SERV)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_HORAR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_HORA)
+    </td>
+    <td style="color: #4e73df">
+        @Html.DisplayFor(modelItem => item.ID_ESTA)
+    </td>
+    <td>
+        @Html.ActionLink("Detalles", "detallePedidoServ", new { id = item.ID_PEDI })|
+        @Html.ActionLink("Cancelar", "eliminarPedidoServ", new { id = item.ID_PEDI })
+    </td>
+</tr>
     }
 
 </table>

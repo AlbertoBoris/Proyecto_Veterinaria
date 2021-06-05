@@ -4,16 +4,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-
-using System.IO;
-
 using System.Linq;
-
-using System.Web;
-
 using System.Web.Mvc;
 
-using System.Web.Services.Description;
 
 
 namespace Veterinaria.Controllers
@@ -22,6 +15,8 @@ namespace Veterinaria.Controllers
     {
         SqlConnection cn = new SqlConnection(ConfigurationManager
                            .ConnectionStrings["cnx"].ConnectionString);
+
+        string sessionId = System.Web.HttpContext.Current.Session.SessionID.ToString();
 
         List<Usuario> ListUsuario()
         {
@@ -217,11 +212,6 @@ namespace Veterinaria.Controllers
 
 
         /*Vistas del controlador Producto*/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult listadoProducto()
         {
             return View(ListProducto());
@@ -264,11 +254,14 @@ namespace Veterinaria.Controllers
             return mensaje;
         }
 
-        public ActionResult registroPedido(string id, double p)
+        public ActionResult registroPedido(string id, double p, string F)
         {
             ViewBag.prod = id;
             ViewBag.prec = p;
-            ViewBag.codigo = codigoCorrelativo();
+            ViewBag.foto = F;
+            ViewBag.fecha = DateTime.UtcNow.Date;
+            ViewBag.codigo = codigoCorrelativo();            
+            ViewBag.Id = Session["IdUsuario"].ToString();
             return View(new PedidoProdOriginal());
         }
 
@@ -287,7 +280,18 @@ namespace Veterinaria.Controllers
                 new SqlParameter(){ParameterName="@IMPOR",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
             };
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOPEDIDOPROD", parameters);
-            return RedirectToAction("listadoProductoPag");
+            return RedirectToAction("successPedido");
+        }
+
+        public ActionResult detallePedido(string id)
+        {
+            PedidoProd objP = ListPedidoProd().Where(p => p.ID_PEDI == id).FirstOrDefault();
+            return View(objP);
+        }
+
+        public ActionResult successPedido()
+        {
+            return View("successPedido");
         }
     }
 }

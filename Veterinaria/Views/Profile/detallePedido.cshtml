@@ -1,0 +1,86 @@
+﻿@model Veterinaria.Models.PedidoProd
+
+@{
+    ViewBag.Title = "detallePedido";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>Detalles del Pedido</h2>
+
+<div style="font-size: 18px">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Estado:
+        </dt>
+
+        <dd>
+            <span class="label label-primary">@Html.DisplayFor(model => model.ID_ESTA)</span>
+        </dd>
+
+        <br />
+
+        <div style="width: 45%; float:left">
+            <dt>
+                Cliente:
+            </dt>
+
+            <dd>
+                <a href="#" class="text-navy">@Html.DisplayFor(model => model.ID_USU)</a>
+            </dd>
+
+            <dt>
+                N° Pedido:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_PEDI)
+            </dd>
+
+            <dt>
+                Registro:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FECHA_PEDI)
+            </dd>
+        </div>
+
+        <div style="width: 45%; float:right">
+            <dt>
+                Producto:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_PROD)
+            </dd>
+
+            <dt>
+                Cantidad:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CONTADOR)
+            </dd>
+
+            <dt>
+                Costo Total:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IMPORTE)
+            </dd>
+        </div>
+    </dl>
+
+    <br /><br /><br /><br />
+
+    <h5 style="text-align:center">Ante cualquier duda sobre el estado de los Pedidos, por favor consulte a un Administrador: Admin@ciberpets.com</h5>
+
+    <br /><br /><br /><br />
+
+
+
+</div>
+
+

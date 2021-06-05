@@ -49,7 +49,8 @@ namespace Veterinaria.Controllers
             {
                 objU = ListUsuario().Where(p => p.ID_USU == i).FirstOrDefault();
                 Session["usuario"] = objU;
-                ViewBag.nombre = n;
+                Session["IdUsuario"] = i;
+                ViewBag.nombre = n;            
             }
             else if (Session["usuario"] != null)
             {
@@ -268,6 +269,32 @@ namespace Veterinaria.Controllers
             dr.Close();
             cn.Close();
             return aServicio;
+        }
+
+        List<PedidoSer> ListPedidoSer()
+        {
+            List<PedidoSer> aPedido = new List<PedidoSer>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAPEDIDOSER", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aPedido.Add(new PedidoSer()
+                {
+                    ID_PEDI = dr[0].ToString(),
+                    FECHA_PEDI = DateTime.Parse(dr[1].ToString()),
+                    ID_USU = dr[2].ToString(),
+                    ID_SERV = dr[3].ToString(),
+                    ID_ESTA = dr[4].ToString(),
+                    ID_HORAR = dr[5].ToString(),
+                    ID_HORA = dr[6].ToString(),
+                    IMPORTE = double.Parse(dr[7].ToString())
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aPedido;
         }
 
         List<PedidoSerOriginal> ListPedidoSerOriginal()
@@ -489,6 +516,8 @@ namespace Veterinaria.Controllers
             return View(mascO);
         }
 
+       
+
         [HttpPost]
         public ActionResult editarMascota(MascotaOriginal objU)
         {
@@ -563,6 +592,39 @@ namespace Veterinaria.Controllers
             };
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOUSUARIO", parametros);
             ViewBag.distrito = new SelectList(ListDistrito(), "ID_DIST", "NOM_DIS");
+            return RedirectToAction("IndexUsuario");
+        }
+        public ActionResult detallePedido(string id)
+        {
+            PedidoProd objP = ListPedidoProd().Where(p => p.ID_PEDI == id).FirstOrDefault();
+            return View(objP);
+        }
+
+        public ActionResult eliminarPedidoProd(string id)
+        {
+            PedidoProd objU = ListPedidoProd().Where(x => x.ID_PEDI == id).FirstOrDefault();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter(){ParameterName="@IDPED",SqlDbType=SqlDbType.Char, Value=objU.ID_PEDI}
+            };
+            CRUD("SP_ELIMINARPEDIDOPROD", parameters);
+            return RedirectToAction("IndexUsuario");
+        }
+
+        public ActionResult detallePedidoServ(string id)
+        {
+            PedidoSer objP = ListPedidoSer().Where(p => p.ID_PEDI == id).FirstOrDefault();
+            return View(objP);
+        }
+
+        public ActionResult eliminarPedidoServ(string id)
+        {
+            PedidoSer objU = ListPedidoSer().Where(x => x.ID_PEDI == id).FirstOrDefault();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter(){ParameterName="@IDPED",SqlDbType=SqlDbType.Char, Value=objU.ID_PEDI}
+            };
+            CRUD("SP_ELIMINARPEDIDOSER", parameters);
             return RedirectToAction("IndexUsuario");
         }
     }

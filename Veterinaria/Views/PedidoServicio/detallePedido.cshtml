@@ -1,0 +1,81 @@
+﻿@model Veterinaria.Models.PedidoSer
+
+@{
+    ViewBag.Title = "detallePedido";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>Detalles del Pedido</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_PEDI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_PEDI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_PEDI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_PEDI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_USU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_SERV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_SERV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_HORAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_HORAR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_HORA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_HORA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IMPORTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IMPORTE)
+        </dd>
+
+        <dt style="color:dodgerblue">
+            @Html.DisplayNameFor(model => model.ID_ESTA)
+        </dt>
+
+        <dd style="color:dodgerblue">
+            @Html.DisplayFor(model => model.ID_ESTA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Atender  ", "editarPedido", new { id = Model.ID_PEDI }, htmlAttributes: new { @class = "btn btn-primary" })
+</p>

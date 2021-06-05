@@ -14,9 +14,8 @@ namespace Veterinaria.Models
         public string ID_PEDI { get; set; }
 
         [DisplayName("Fecha")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Nacimiento (yyyy-MM-dd)")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha")]
+
         public DateTime FECHA_PEDI { get; set; }
 
         [DisplayName("Usuario")]

@@ -10,25 +10,25 @@ namespace Veterinaria.Models
     public class UsuarioOriginal
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Código")]
-        [DisplayName("CODIGO")]
+        [DisplayName("Codigo")]
         public string ID_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre del Usuario")]
         [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Nombre")]
 
-        [DisplayName("NOMBRES")]
+        [DisplayName("Nombre")]
         public string NOMBRES { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Apellido del Usuario")]
         [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Apellido")]
 
-        [DisplayName("APELLIDOS")]
+        [DisplayName("Apellido")]
         public string APELLIDOS { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Direccion del Usuario")]
         [RegularExpression("^[a-zA-Z0-9]{1,60}$", ErrorMessage = "Ingrese una dirreccion con menos de 40 letras")]
 
-        [DisplayName("DIRECCION")]
+        [DisplayName("Direccion")]
         public string DIRECCION { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese DNI del Usuario")]
@@ -40,38 +40,38 @@ namespace Veterinaria.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nickname del Usuario")]
         [RegularExpression("^[a-zA-Z0-9]{1,15}$", ErrorMessage = "El Nickname debe ser menos de 10 letras")]
 
-        [DisplayName("NICKNAME")]
+        [DisplayName("Apodo")]
         public string NOMB_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Contraseña del Usuario")]
         [StringLength(8, MinimumLength = 4, ErrorMessage = "La contraseña debe ser de al menos 4 caracteres maximo 10")]
-        [DisplayName("CONTRASEÑA")]
+        [DisplayName("Contraseña")]
         public string PASS_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Correo del Usuario")]
         [EmailAddress]
-        [DisplayName("CORREO")]
+        [DisplayName("Correo")]
         public string CORREO_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Nacimiento (yyyy-MM-dd)")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DisplayName("FECHA NACIMIENTO")]
+        [DisplayName("Fecha Nacimiento")]
         public DateTime FECHA_NACI { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Telefono del Usuario")]
         [RegularExpression("^[0-9]{9}$", ErrorMessage = "El telefono  es de 9 digitos")]
         [StringLength(9, ErrorMessage = "El telefono  es de 9 digitos")]
-        [DisplayName("TELEFONO")]
+        [DisplayName("Telefono")]
         public string TELEFONO { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Sexo del Usuario")]
         [RegularExpression("^[a-zA-Z]{1,20}$", ErrorMessage = "Solo letras en el Campo Sexo")]
-        [DisplayName("SEXO")]
+        [DisplayName("Sexo")]
         public string SEXO_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Distrito del Usuario")]
-        [DisplayName("DISTRITO")]
+        [DisplayName("Distrito")]
         public string ID_DIST { get; set; }
     }
 }

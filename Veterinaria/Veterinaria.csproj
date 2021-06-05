@@ -122,6 +122,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MascotaController.cs" />
+    <Compile Include="Controllers\PedidoProductoController.cs" />
+    <Compile Include="Controllers\PedidoServicioController.cs" />
     <Compile Include="Controllers\TiendaServicioController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\Hora.cs" />
     <Compile Include="Models\PedidoProd.cs" />
     <Compile Include="Models\Distrito.cs" />
@@ -1885,6 +1888,7 @@
     <Content Include="Images\portada_juego\img8.jpg" />
     <Content Include="Images\portada_juego\img9.jpg" />
     <Content Include="Images\principal\CiberPets.png" />
+    <Content Include="Images\principal\Estados.PNG" />
     <Content Include="Images\principal\Games-Banner-1140x400.png" />
     <Content Include="Images\principal\jottlyfooterstyles.png" />
     <Content Include="Images\principal\panasonic-logo-black-and-white.png" />
@@ -2131,6 +2135,16 @@
     <Content Include="Views\PedidoSer\registroServicio.cshtml" />
     <Content Include="Views\Profile\editarUsuario.cshtml" />
     <Content Include="Views\Profile\editarMascota.cshtml" />
+    <Content Include="Views\PedidoProducto\listadoPedidoProd.cshtml" />
+    <Content Include="Views\PedidoProducto\editarPedido.cshtml" />
+    <Content Include="Views\PedidoProducto\detallePedido.cshtml" />
+    <Content Include="Views\TiendaProducto\successPedido.cshtml" />
+    <Content Include="Views\Profile\detallePedido.cshtml" />
+    <Content Include="Views\PedidoSer\successPedido.cshtml" />
+    <Content Include="Views\Profile\detallePedidoServ.cshtml" />
+    <Content Include="Views\PedidoServicio\listadoPedidoSer.cshtml" />
+    <Content Include="Views\PedidoServicio\editarPedido.cshtml" />
+    <Content Include="Views\PedidoServicio\detallePedido.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

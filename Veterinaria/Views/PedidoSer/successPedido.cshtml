@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+
+    <br />
+    <div style="margin-left: 300px; margin-right: 300px; padding:20px;text-align:center; border: ridge; border-radius: 20px; border-color: cornflowerblue; background-color: whitesmoke">
+        <h1 style="text-align:center">Pedido Completado</h1>
+        <h3 style="text-align: center">Su pedido ha sido enviado, puede completar su compra acercandose a las siguientes agencias Bancarias: </h3>
+        <div style="text-align:center">
+            <img src=" https://logovtor.com/wp-content/uploads/2020/03/banco-de-credito-del-peru-bcp-logo-vector.png " style="width: 150px; height:75px" />
+            <img src=" https://www.bbva.com/wp-content/uploads/2019/04/Logo-BBVA.jpg " style="width: 150px; height:75px" />
+            <img src=" https://www.crear4d.com/web/wp-content/uploads/2021/02/interbank-LOGO.jpg " style="width: 150px; height:75px" />
+        </div>
+        <h4>Despues de pagar, un Administrador verificara la transacción. Puede ver el estado de sus pedidos en el Panel de Control</h4>
+        <br />
+
+        @Html.ActionLink("Seguir Comprando  ", "listadoServicioPag", new { /*id = Model.ID_PEDI */}, htmlAttributes: new { @class = "btn btn-primary" })
+
+        @Html.ActionLink("Panel de Control", "IndexUsuario", "Profile", new { /*id = Model.ID_PEDI */}, htmlAttributes: new { @class = "btn btn-primary" })
+
+    </div>
+<br /><br /><br />
+}
+
+

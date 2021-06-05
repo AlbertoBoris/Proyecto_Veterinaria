@@ -18,7 +18,7 @@
                 <img class="imgbanner" src="~/Images/principal/CiberPets.png" alt="Logo" style="width:20%; height:54px; float:left; background-color:#1849AB" />
                 <nav id="menuArriba">
                     <ul class="menu">
-                        <li><a href="#">Inicio</a></li>
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                         <li><a href="#">Productos</a></li>
                         <li><a href="#">Servicios</a></li>
                         <li>@Html.ActionLink("Registrate!", "registrarUsuario", "Home")</li>

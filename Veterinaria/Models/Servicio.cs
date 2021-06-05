@@ -24,6 +24,9 @@ namespace Veterinaria.Models
         [DisplayName("HORARIO")]
         public string ID_HORAR { get; set; }
 
+        [DisplayName("ID HORARIO")]
+        public string ID_HORAROR { get; set; }
+
         [DisplayName("FECHASERVICIO")]
         public DateTime FECH_SERV { get; set; }
 

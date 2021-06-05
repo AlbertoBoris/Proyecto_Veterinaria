@@ -21,7 +21,7 @@
             <p class="dato" style=" margin: 5px;">Precio: S/.@item.PREC_PROD.ToString("0.00")</p>
             <p class="dato" style=" margin: 5px;">Disponibles: @item.STOCK</p>
         </div>
-        @Html.ActionLink("ADQUIRIR", "registroPedido", new { id = @item.ID_PROD, P = item.PREC_PROD },
+        @Html.ActionLink("ADQUIRIR", "registroPedido", new { id = @item.ID_PROD, P = item.PREC_PROD, F = @item.FOTO },
                                    new { @class = "btn btn-primary" })
 
     </section>

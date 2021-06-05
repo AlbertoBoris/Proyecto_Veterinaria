@@ -73,10 +73,31 @@ namespace Veterinaria.Controllers
             return aDistrito;
         }
 
+        List<Horario> ListHorar()
+        {
+            List<Horario> aDistrito = new List<Horario>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAHORA", cn);
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Horario objP = new Horario()
+                {
+                    ID_HORAR = dr[0].ToString(),
+                    NOMB_HORA = dr[1].ToString(),
+                };
+                aDistrito.Add(objP);
+            }
+
+            dr.Close();
+            cn.Close();
+            return aDistrito;
+        }
+
         List<Servicio> ListServicio()
         {
             List<Servicio> aServicio = new List<Servicio>();
-            SqlCommand cmd = new SqlCommand("SP_LISTASERVICIO", cn);
+            SqlCommand cmd = new SqlCommand("SP_LISTASERVICIOSEMIORI", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -88,8 +109,9 @@ namespace Veterinaria.Controllers
                     NOMB_SERV = dr[1].ToString(),
                     PRECIO_SERV = double.Parse(dr[2].ToString()),
                     DESC_SERV = dr[3].ToString(),
-                    ID_HORAR = dr[4].ToString(),
-                    FECH_SERV = DateTime.Parse(dr[5].ToString())
+                    ID_HORAROR = dr[4].ToString(),
+                    ID_HORAR = dr[5].ToString(),
+                    FECH_SERV = DateTime.Parse(dr[6].ToString())
                 });
             }
             dr.Close();
@@ -244,7 +266,7 @@ namespace Veterinaria.Controllers
         public ActionResult listadoServicioPag(int p = 0)
         {
             List<Servicio> aProducto = ListServicio();
-            int filas = 5;
+            int filas = 8;
             int n = aProducto.Count;
             int pag = n % filas > 0 ? n / filas + 1 : n / filas;
 
@@ -279,13 +301,15 @@ namespace Veterinaria.Controllers
         }
 
         public ActionResult registroServicio(string id, string H, double p)
-        {
-            ViewBag.serv = id;
-            ViewBag.horar = H;
-            ViewBag.prec = p;            
+        {           
+            ViewBag.fecha = DateTime.UtcNow.Date;
             ViewBag.codigo = codigoCorrelativo();
             ViewBag.hora = new SelectList(ListHora(), "ID_HORA", "NOM_HOR");
-            
+            ViewBag.Id = Session["IdUsuario"].ToString();
+            ViewBag.serv = id;
+            ViewBag.horar = H;
+            ViewBag.prec = p;
+
             return View(new PedidoSerOriginal());
         }
 
@@ -305,7 +329,11 @@ namespace Veterinaria.Controllers
                 new SqlParameter(){ParameterName="@IMPOR",SqlDbType=SqlDbType.SmallMoney, Value=objP.IMPORTE}
             };
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOPEDIDOSER", parameters);
-            return RedirectToAction("listadoServicioPag");
+            return RedirectToAction("successPedido");
+        }
+        public ActionResult successPedido()
+        {
+            return View("successPedido");
         }
     }
 }

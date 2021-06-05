@@ -26,16 +26,10 @@
                 @Html.DisplayNameFor(model => model.STOCK)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SERIE)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.MARCA)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.PROV_PROD)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FOTO)
             </th>
             <th></th>
         </tr>
@@ -57,16 +51,10 @@
                     @Html.DisplayFor(modelItem => item.STOCK)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SERIE)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.MARCA)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.PROV_PROD)
-                </td>
-                <td>
-                    <img src="@Url.Content(item.FOTO)" width="50" height="70" />
                 </td>
                 <td>
                     @Html.ActionLink("Ed.", "editarProducto", new { id = item.ID_PROD },
