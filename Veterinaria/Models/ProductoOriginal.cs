@@ -15,7 +15,7 @@ namespace Veterinaria.Models
         public string ID_PROD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre")]
-        [RegularExpression("^[a-zA-Z]{1,50}$", ErrorMessage = "Solo letras en el Campo Nombre")]
+        [RegularExpression("^[a-zA-Z ]{1,50}$", ErrorMessage = "Solo letras en el Campo Nombre")]
 
         [DisplayName("NOMBRE")]
         public string NOMB_PROD { get; set; }
@@ -33,31 +33,31 @@ namespace Veterinaria.Models
         public int STOCK { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Serie")]
-        [RegularExpression("^[0-9A-Z]{8}$", ErrorMessage = "La serie del Producto debe ser de 8 caracteres entre numeros y Letras en Mayuscula")]
+        [RegularExpression("^[0-9A-Z ]{8}$", ErrorMessage = "La serie del Producto debe ser de 8 caracteres entre numeros y Letras en Mayuscula")]
         [StringLength(8, ErrorMessage = "La serie del Producto debe ser de 8 caracteres")]
         [DisplayName("SERIE")]
         public string SERIE { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Marca")]
-        [RegularExpression("^[a-zA-Z]{1,35}$", ErrorMessage = "Solo letras en el Campo Marca")]
+        [RegularExpression("^[a-zA-Z ]{1,35}$", ErrorMessage = "Solo letras en el Campo Marca")]
 
         [DisplayName("MARCA")]
         public string MARCA { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Proveedor")]
-        [RegularExpression("^[a-zA-Z]{1,25}$", ErrorMessage = "Solo letras en el Campo Proveedor")]
+        [RegularExpression("^[a-zA-Z ]{1,25}$", ErrorMessage = "Solo letras en el Campo Proveedor")]
 
         [DisplayName("PROVEEDOR")]
         public string PROV_PROD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Descripcion")]
-        [RegularExpression("^[a-zA-Z]{1,50}$", ErrorMessage = "Solo letras en el Campo Descripcion")]
+        [RegularExpression("^[a-zA-Z ]{1,50}$", ErrorMessage = "Solo letras en el Campo Descripcion")]
 
         [DisplayName("DESCRIPCION")]
         public string DESC_PROD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Detalle")]
-        [RegularExpression("^[a-zA-Z]{1,50}$", ErrorMessage = "Solo letras en el Campo Detalle")]
+        [RegularExpression("^[a-zA-Z ]{1,50}$", ErrorMessage = "Solo letras en el Campo Detalle")]
 
         [DisplayName("DETALLE")]
         public string DESC_HTML { get; set; }

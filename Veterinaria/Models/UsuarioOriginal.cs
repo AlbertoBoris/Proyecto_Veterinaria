@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 
 namespace Veterinaria.Models
-{ 
+{
     public class UsuarioOriginal
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Código")]
@@ -14,19 +14,19 @@ namespace Veterinaria.Models
         public string ID_USU { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre del Usuario")]
-        [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Nombre")]
+        [RegularExpression("^[a-zA-Z ]{1,30}$", ErrorMessage = "Solo letras en el Campo Nombre")]
 
         [DisplayName("Nombre")]
         public string NOMBRES { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Apellido del Usuario")]
-        [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Apellido")]
+        [RegularExpression("^[a-zA-Z ]{1,30}$", ErrorMessage = "Solo letras en el Campo Apellido")]
 
         [DisplayName("Apellido")]
         public string APELLIDOS { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Direccion del Usuario")]
-        [RegularExpression("^[a-zA-Z0-9]{1,60}$", ErrorMessage = "Ingrese una dirreccion con menos de 40 letras")]
+        [RegularExpression("^[a-zA-Z0-9 ]{1,60}$", ErrorMessage = "Ingrese una dirreccion con menos de 40 letras")]
 
         [DisplayName("Direccion")]
         public string DIRECCION { get; set; }
@@ -38,7 +38,7 @@ namespace Veterinaria.Models
         public string DNI { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nickname del Usuario")]
-        [RegularExpression("^[a-zA-Z0-9]{1,15}$", ErrorMessage = "El Nickname debe ser menos de 10 letras")]
+        [RegularExpression("^[a-zA-Z0-9 ]{1,15}$", ErrorMessage = "El Nickname debe ser menos de 10 letras")]
 
         [DisplayName("Apodo")]
         public string NOMB_USU { get; set; }
@@ -66,7 +66,7 @@ namespace Veterinaria.Models
         public string TELEFONO { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Sexo del Usuario")]
-        [RegularExpression("^[a-zA-Z]{1,20}$", ErrorMessage = "Solo letras en el Campo Sexo")]
+        [RegularExpression("^[a-zA-Z ]{1,20}$", ErrorMessage = "Solo letras en el Campo Sexo")]
         [DisplayName("Sexo")]
         public string SEXO_USU { get; set; }
 

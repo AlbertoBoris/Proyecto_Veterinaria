@@ -15,7 +15,7 @@ namespace Veterinaria.Models
         public string ID_SERV { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre")]
-        [RegularExpression("^[a-zA-Z]{1,50}$", ErrorMessage = "Solo letras en el Campo Nombre")]
+        [RegularExpression("^[a-zA-Z ]{1,50}$", ErrorMessage = "Solo letras en el Campo Nombre")]
 
         [DisplayName("NOMBRE")]
         public string NOMB_SERV { get; set; }
@@ -27,7 +27,7 @@ namespace Veterinaria.Models
         public double PRECIO_SERV { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Descripción")]
-        [RegularExpression("^[a-zA-Z]{1,100}$", ErrorMessage = "Solo letras en el Campo descripcion")]
+        [RegularExpression("^[a-zA-Z ]{1,100}$", ErrorMessage = "Solo letras en el Campo descripcion")]
 
         [DisplayName("DESCRIPCION")]
         public string DESC_SERV { get; set; }
@@ -37,16 +37,11 @@ namespace Veterinaria.Models
         [DisplayName("HORARIO")]
         public string ID_HORAR { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Servicio")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Servicio (yyyy-MM-dd)")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("FECHASERVICIO")]
         public DateTime FECH_SERV { get; set; }
-
-
-
-
-
-
-
 
 
     }

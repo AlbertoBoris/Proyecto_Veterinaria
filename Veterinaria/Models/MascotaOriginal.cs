@@ -15,17 +15,17 @@ namespace Veterinaria.Models
 
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre")]
-        [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Nombre")]
+        [RegularExpression("^[a-zA-Z ]{1,30}$", ErrorMessage = "Solo letras en el Campo Nombre")]
         [DisplayName("Nombre")]
         public string NOMBRE { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Animal")]
-        [RegularExpression("^[a-zA-Z]{1,30}$", ErrorMessage = "Solo letras en el Campo Animal")]
+        [RegularExpression("^[a-zA-Z ]{1,30}$", ErrorMessage = "Solo letras en el Campo Animal")]
         [DisplayName("Animal")]
         public string ANIMAL { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Raza")]
-        [RegularExpression("^[a-zA-Z]{1,40}$", ErrorMessage = "Solo letras en el Campo Raza")]
+        [RegularExpression("^[a-zA-Z ]{1,40}$", ErrorMessage = "Solo letras en el Campo Raza")]
         [DisplayName("Raza")]
         public String RAZA { get; set; }
 
