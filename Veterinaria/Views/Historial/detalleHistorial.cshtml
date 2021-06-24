@@ -1,0 +1,69 @@
+﻿@model Veterinaria.Models.Historial
+
+@{
+    ViewBag.Title = "detalleHistorial";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>Detalles del Historial</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div style="width:20%;float:left">
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_HIST)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_HIST)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_MASC)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_MASC)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FEC_ATT)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FEC_ATT)
+            </dd>
+        </div>
+
+        <div style="width:70%;float:right">
+            <dt>
+                @Html.DisplayNameFor(model => model.ASUNTO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ASUNTO)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DESCRIPCION)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DESCRIPCION)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TRATAMIENTO)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TRATAMIENTO)
+            </dd>
+        </div>
+    </dl>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+<p>
+    @Html.ActionLink("Volver a la Lista", "listadoHistorial")
+</p>

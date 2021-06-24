@@ -256,10 +256,11 @@ namespace Veterinaria.Controllers
 
         public ActionResult registroPedido(string id, double p, string F)
         {
+            DateTime now = DateTime.Now;
             ViewBag.prod = id;
             ViewBag.prec = p;
             ViewBag.foto = F;
-            ViewBag.fecha = DateTime.UtcNow.Date;
+            ViewBag.fecha = ViewBag.fecha = now.Year + "/" + now.Month + "/" + now.Day; ;
             ViewBag.codigo = codigoCorrelativo();            
             ViewBag.Id = Session["IdUsuario"].ToString();
             return View(new PedidoProdOriginal());

@@ -166,7 +166,57 @@ namespace Veterinaria.Controllers
             cn.Close();
             return aMascota;
         }
+        List<HistorialOriginal> ListHistorialOriginal()
+        {
+            List<HistorialOriginal> aHistorial = new List<HistorialOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAHISTORIALORIGINAL", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aHistorial.Add(new HistorialOriginal()
+                {
+                    ID_HIST = dr[0].ToString(),
+                    ID_MASC = dr[1].ToString(),
+                    FEC_ATT = DateTime.Parse(dr[2].ToString()),
+                    ASUNTO = dr[3].ToString(),
+                    DESCRIPCION = dr[4].ToString(),
+                    TRATAMIENTO = dr[5].ToString(),
 
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aHistorial;
+        }
+
+        List<HistorialOriginal> ListHistorialxMascota(string codigo)
+        {
+            HistorialOriginal mascO = ListHistorialOriginal().Where(x => x.ID_MASC == codigo).FirstOrDefault();
+            List<HistorialOriginal> aPedido = new List<HistorialOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAHISTORIALXMASCOTA", cn);
+            cmd.Parameters.AddWithValue("@MASC", codigo);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aPedido.Add(new HistorialOriginal()
+                {
+                    ID_HIST = dr[0].ToString(),
+                    ID_MASC = dr[1].ToString(),
+                    FEC_ATT = DateTime.Parse(dr[2].ToString()),
+                    ASUNTO = dr[3].ToString(),
+                    DESCRIPCION = dr[4].ToString(),
+                    TRATAMIENTO = dr[5].ToString(),
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aPedido;
+        }
 
         List<PedidoProd> ListPedidoProd()
         {
@@ -217,6 +267,7 @@ namespace Veterinaria.Controllers
             cn.Close();
             return aPedido;
         }
+
 
         List<PedidoProdOriginal> ListPedidoProdxUsuario(string codigo)
         {
@@ -436,7 +487,7 @@ namespace Veterinaria.Controllers
 
         List<MascotaOriginal> ListMascotaxUsuario(string codigo)
         {
-             MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_USU == codigo).FirstOrDefault();
+             MascotaOriginal mascO = ListMascotaOriginal().Where(x => x.ID_MASC == codigo).FirstOrDefault();
             List<MascotaOriginal> aMascota = new List<MascotaOriginal>();
             SqlCommand cmd = new SqlCommand("SP_LISTAMASCOTAXUSUARIO", cn);
             cmd.Parameters.AddWithValue("@USU", codigo);
@@ -533,7 +584,7 @@ namespace Veterinaria.Controllers
             };
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOMASCOTA", parametros);
             ViewBag.usuario = new SelectList(ListUsuario(), "ID_USU", "NOMBRES");
-            return View("IndexUsuario");
+            return RedirectToAction("IndexUsuario");
         }
 
         public ActionResult eliminarMascota(string id)
@@ -570,6 +621,11 @@ namespace Veterinaria.Controllers
 
             ViewBag.distrito = new SelectList(ListDistrito(), "ID_DIST", "NOM_DIS");
             return View(usuaO);
+        }
+        public ActionResult listadoHistorialxMascota(string id)
+        {
+            HistorialOriginal mascO = ListHistorialOriginal().Where(x => x.ID_MASC == id).FirstOrDefault();
+            return View(ListHistorialxMascota(id));
         }
 
         [HttpPost]

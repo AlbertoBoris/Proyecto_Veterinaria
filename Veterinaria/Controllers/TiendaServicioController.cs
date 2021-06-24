@@ -301,8 +301,9 @@ namespace Veterinaria.Controllers
         }
 
         public ActionResult registroServicio(string id, string H, double p)
-        {           
-            ViewBag.fecha = DateTime.UtcNow.Date;
+        {
+            DateTime now = DateTime.Now;
+            ViewBag.fecha = now.Year+ "/" + now.Month + "/" + now.Day;
             ViewBag.codigo = codigoCorrelativo();
             ViewBag.hora = new SelectList(ListHora(), "ID_HORA", "NOM_HOR");
             ViewBag.Id = Session["IdUsuario"].ToString();

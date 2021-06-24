@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Veterinaria.Models.HistorialOriginal>
+
+@{
+    ViewBag.Title = "listadoHistorialxMascota";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>Historiales de tu Mascota</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_HIST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_MASC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FEC_ATT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ASUNTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRATAMIENTO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_HIST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_MASC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FEC_ATT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ASUNTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRATAMIENTO)
+        </td>
+        <td>
+            @Html.ActionLink("Detalle", "Edit", new { /* id=item.PrimaryKey */ }) |
+        </td>
+    </tr>
+}
+
+</table>

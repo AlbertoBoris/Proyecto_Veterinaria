@@ -5,56 +5,59 @@
     Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
 }
 
-<h2>Lista de Servicios</h2>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Lista de Servicios Veterinarios</h6>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_SERV)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NOMB_SERV)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PRECIO_SERV)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_HORAR)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FECH_SERV)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
 
-<p>
-    <button type="button" class="btn btn-light"> @Html.ActionLink("Agregar un Servicio", "registroServicio", "Servicio") </button>
-</p>
-<table class="table table-bordered">
-    <thead class="thead-light">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID_SERV)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NOMB_SERV)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PRECIO_SERV)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ID_HORAR)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FECH_SERV)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_SERV)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NOMB_SERV)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PRECIO_SERV)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_HORAR)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FECH_SERV)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Ed.", "editarServicio", new { id = item.ID_SERV }) |
+                        @Html.ActionLink("Det.", "detalleServicio", new { id = item.ID_SERV }) |
+                        @Html.ActionLink("Eli.", "eliminarServicio", new { id = item.ID_SERV })
+                    </td>
+                </tr>
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_SERV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMB_SERV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PRECIO_SERV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_HORAR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECH_SERV)
-        </td>
-        <td>
-            @Html.ActionLink("Ed.", "editarServicio", new {  id=item.ID_SERV  }) |
-            @Html.ActionLink("Det.", "detalleServicio", new { id = item.ID_SERV }) |
-            @Html.ActionLink("Eli.", "eliminarServicio", new {  id = item.ID_SERV  })
-        </td>
-    </tr>
-}
-
-</table>
+        </table>
+    </div>
+</div>

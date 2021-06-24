@@ -20,7 +20,7 @@ namespace Veterinaria.Models
         [DisplayName("Raza")]
         public string RAZA { get; set; }
 
-        [DisplayName("Edad")]
+        [DisplayName("Sexo")]
         public string EDAD { get; set; }
 
         [DisplayName("Fecha de Nac.")]

@@ -1,218 +1,53 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CiberMedia</title>
-    @Styles.Render("~/Content/css")
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+
+
+    <title>CiberPets - Veterinaria</title>
+
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/Content/css/styles.css" rel="stylesheet" />
 </head>
 
-<body>
+<body id="page-top">
+    
+    @RenderBody()
 
-    <div id="container">
-        <br />
-        <div id="contenido">
-            <div id="banner">
-                <img class="imgbanner" src="~/Images/principal/CiberPets.png" alt="Logo" style="width:20%; height:54px; float:left; background-color:#1849AB" />
-                <nav id="menuArriba">
-                    <ul class="menu">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                        <li><a href="#">Productos</a></li>
-                        <li><a href="#">Servicios</a></li>
-                        <li>@Html.ActionLink("Registrate!", "registrarUsuario", "Home")</li>
-                    </ul>
-                </nav>
-            </div>
 
-            <br />
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/Content/js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
-            <!--****** Carrusel******* -->
-            <div id="carrusel">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item imgCarrusel active">
-                            <img src="~/Images/Carrusel/banner1-mascotas.jpg" alt="Mascota" style="width: 100%;">
-                        </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
 
-                        <div class="item imgCarrusel">
-                            <img src="~/Images/Carrusel/banner2-mascotas.jpg" alt="Perro" style="width: 100%;">
-                        </div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 
-                        <div class="item imgCarrusel">
-                            <img src="~/Images/Carrusel/banner3-mascotas.jpg" alt="Gato" style="width:100%;">
-                        </div>
-                    </div>
-
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-
-
-            @RenderBody()
-
-
-            <section id="cuerpo">
-
-                <div id="juegos-izquierda">
-
-                    <h2 class="titulo-juegos">Nuestros Productos</h2>
-
-                    <img class="cara-img" src="~/Images/productos/200972-0000-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/productos/200980-0000-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/productos/825404-0000-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/productos/MK724ZJ9TA-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/productos/MKT6U8V4IM-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/productos/825404-0000-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/productos/200980-0000-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/productos/200972-0000-001.jpg" alt="Caratula" />
-
-                </div>
-
-                <div id="formulario-derecha">
-
-                    <h2 class="titulo-juegos">Ingresar</h2>
-
-                    @{
-                        if (!string.IsNullOrEmpty(ViewBag.Message))
-                        {
-                            <div class="alert-warning">@ViewBag.Message</div>
-                        }
-                    }
-
-                    <form action="/Home/Login" method="post">
-                        <div class="form-group">
-                            <label>Ingresa tu Id</label>
-                            <input class="form-control" type="text" name="idUsu" value="" />
-                        </div>
-                        <div class="form-group">
-                            <label>Ingresa tu contraseña</label>
-                            <input class="form-control" type="password" name="password" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input class="btn btn-primary" type="submit" value="INGRESAR" />
-                        </div>
-                    </form>
-
-
-                    <h2 class="titulo-juegos">Ultimas Noticia</h2>
-
-                    <a href="https://www.burgosnoticias.com/actualidad/035225/la-primavera-tambien-altera-a-las-mascotas">
-                        <img alt="Noticia" src="https://estaticos2.burgosnoticias.com/resources/files/2020/12/5/1607171980553perro-dalmatadn.png" style="width:100%; border:thick; border-radius:10px;" />
-                        <h4 style="text-align: center">La primavera también "altera" a las mascotas</h4>
-                    </a>
-
-                    <a href="https://www.vertigopolitico.com/bienestar/salud/notas/la-mejor-proteccion-contra-enfermedades-de-las-mascotas-es-la-vacunacion">
-                        <img alt="Noticia" src="https://tvazteca.brightspotcdn.com/dims4/default/acc8bec/2147483647/strip/true/crop/1920x1280+0+0/resize/968x645!/format/jpg/quality/80/?url=https%3A%2F%2Ftvazteca.brightspotcdn.com%2Fdf%2Fb1%2F8d88c953436e9f86c1848032ab9e%2Fperro-con-mujer.jpg" style="width:100%; border:thick; border-radius:10px;" />
-                        <h4 style="text-align: center">La mejor protección contra enfermedades</h4>
-                    </a>
-                </div>
-
-
-
-            </section>
-
-            <section id="cuerpo">
-
-                <div id="juegos-izquierda">
-
-                    <h2 class="titulo-juegos">Nuestros Servicios</h2>
-
-                    <img class="cara-img" src="~/Images/servicios/727896-0300-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/servicios/MK1CGEU3H2-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/servicios/MKIP3APH36-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/servicios/MKT6U8V4IM-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/servicios/MKW6BXVEH6-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/servicios/MK1CGEU3H2-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/servicios/727896-0300-001.jpg" alt="Caratula" />
-
-                    <img class="cara-img" src="~/Images/servicios/MKW6BXVEH6-001.jpg" alt="Caratula" />
-
-                </div>
-
-                <div id="formulario-derecha">
-
-                    <h2 class="titulo-juegos">Ofertas del Dia</h2>
-
-                    <div id="carrusel">
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item oferta active">
-                                    <img src="~/Images/Carrusel/CdTFQixUkAAgXWR.jpg" alt="Oferta1" style="width: 100%; height: 594px">
-                                </div>
-
-                                <div class="item oferta">
-                                    <img src="~/Images/Carrusel/1929903.jpg" alt="Oferta2" style="width: 100%; height: 594px">
-                                </div>
-
-                                <div class="item oferta">
-                                    <img src="~/Images/Carrusel/Hamster-Wallpaper-iPhone-3.jpg" alt="Oferta3" style="width: 100%; height: 594px">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-
-
-            </section>
-
-
-            <footer>
-                <img class="foot" src="~/Images/principal/jottlyfooterstyles.png" alt="Footer" />
-            </footer>
-
-
-        </div>
-
-
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryval")
-
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </div>
 </body>
 </html>

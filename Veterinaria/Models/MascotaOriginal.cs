@@ -29,9 +29,8 @@ namespace Veterinaria.Models
         [DisplayName("Raza")]
         public String RAZA { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Edad")]
-        [Range(1, 20, ErrorMessage = "La edad debe ser de 1 a 20 años")]
-        [DisplayName("Edad")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Sexo")]
+        [DisplayName("Sexo")]
         public string EDAD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Nacimiento (yyyy-MM-dd)")]

@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HistorialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MascotaController.cs" />
     <Compile Include="Controllers\PedidoProductoController.cs" />
@@ -134,6 +135,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Estado.cs" />
+    <Compile Include="Models\HistorialOriginal.cs" />
+    <Compile Include="Models\Historial.cs" />
     <Compile Include="Models\Hora.cs" />
     <Compile Include="Models\PedidoProd.cs" />
     <Compile Include="Models\Distrito.cs" />
@@ -152,12 +155,35 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\favicon.ico" />
+    <Content Include="Content\assets\img\about\1.jpg" />
+    <Content Include="Content\assets\img\about\2.jpg" />
+    <Content Include="Content\assets\img\about\3.jpg" />
+    <Content Include="Content\assets\img\about\4.jpg" />
+    <Content Include="Content\assets\img\close-icon.svg" />
+    <Content Include="Content\assets\img\header-bg.jpg" />
+    <Content Include="Content\assets\img\logos\facebook.svg" />
+    <Content Include="Content\assets\img\logos\google.svg" />
+    <Content Include="Content\assets\img\logos\ibm.svg" />
+    <Content Include="Content\assets\img\logos\microsoft.svg" />
+    <Content Include="Content\assets\img\map-image.png" />
+    <Content Include="Content\assets\img\navbar-logo.svg" />
+    <Content Include="Content\assets\img\portfolio\1.jpg" />
+    <Content Include="Content\assets\img\portfolio\2.jpg" />
+    <Content Include="Content\assets\img\portfolio\3.jpg" />
+    <Content Include="Content\assets\img\portfolio\4.jpg" />
+    <Content Include="Content\assets\img\portfolio\5.jpg" />
+    <Content Include="Content\assets\img\portfolio\6.jpg" />
+    <Content Include="Content\assets\img\team\1.jpg" />
+    <Content Include="Content\assets\img\team\2.jpg" />
+    <Content Include="Content\assets\img\team\3.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\sb-admin-2.css" />
     <Content Include="Content\css\sb-admin-2.min.css" />
+    <Content Include="Content\css\styles.css" />
     <Content Include="Content\estiloAdmin.css" />
     <Content Include="Content\estilos.css" />
     <Content Include="Content\estiloUsuario.css" />
@@ -167,6 +193,7 @@
     <Content Include="Content\js\demo\datatables-demo.js" />
     <Content Include="Content\js\sb-admin-2.js" />
     <Content Include="Content\js\sb-admin-2.min.js" />
+    <Content Include="Content\js\scripts.js" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.js" />
@@ -1892,6 +1919,7 @@
     <Content Include="Images\principal\Games-Banner-1140x400.png" />
     <Content Include="Images\principal\jottlyfooterstyles.png" />
     <Content Include="Images\principal\panasonic-logo-black-and-white.png" />
+    <Content Include="Images\principal\Pug.PNG" />
     <Content Include="Images\principal\videojuegos.png" />
     <Content Include="Images\productos\200972-0000-001.jpg" />
     <Content Include="Images\productos\200980-0000-001.jpg" />
@@ -2145,6 +2173,11 @@
     <Content Include="Views\PedidoServicio\listadoPedidoSer.cshtml" />
     <Content Include="Views\PedidoServicio\editarPedido.cshtml" />
     <Content Include="Views\PedidoServicio\detallePedido.cshtml" />
+    <Content Include="Views\Historial\registrarHistorial.cshtml" />
+    <Content Include="Views\Historial\listadoHistorial.cshtml" />
+    <Content Include="Views\Historial\detalleHistorial.cshtml" />
+    <Content Include="Views\Historial\editarHistorial.cshtml" />
+    <Content Include="Views\Profile\listadoHistorialxMascota.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

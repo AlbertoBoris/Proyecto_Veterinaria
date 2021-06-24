@@ -255,7 +255,7 @@ namespace Veterinaria.Controllers
             };
             ViewBag.mensaje = CRUD("SP_MANTENIMIENTOMASCOTA", parametros);
             ViewBag.usuario = new SelectList(ListUsuario(), "ID_USU", "NOMBRES");
-            return View("listadoMascota");
+            return RedirectToAction("listadoMascota");
         }
 
         public ActionResult eliminarMascota(string id)
