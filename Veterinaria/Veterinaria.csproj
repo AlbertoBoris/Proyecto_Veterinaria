@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CitaController.cs" />
     <Compile Include="Controllers\HistorialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MascotaController.cs" />
@@ -134,6 +135,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Cita.cs" />
+    <Compile Include="Models\CitaOriginal.cs" />
     <Compile Include="Models\Estado.cs" />
     <Compile Include="Models\HistorialOriginal.cs" />
     <Compile Include="Models\Historial.cs" />
@@ -2178,6 +2182,12 @@
     <Content Include="Views\Historial\detalleHistorial.cshtml" />
     <Content Include="Views\Historial\editarHistorial.cshtml" />
     <Content Include="Views\Profile\listadoHistorialxMascota.cshtml" />
+    <Content Include="Views\Cita\listadoCita.cshtml" />
+    <Content Include="Views\Cita\detalleCita.cshtml" />
+    <Content Include="Views\Cita\registrarCita.cshtml" />
+    <Content Include="Views\Cita\editarCita.cshtml" />
+    <Content Include="Views\Profile\listadoCitaxUsuario.cshtml" />
+    <Content Include="Views\Profile\registrarCita.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

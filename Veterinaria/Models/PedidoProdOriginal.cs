@@ -13,8 +13,9 @@ namespace Veterinaria.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese ID")]
         public string ID_PEDI { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Fecha de Registro")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Pedido")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha")]
         public DateTime FECHA_PEDI { get; set; }
 
         [DisplayName("Usuario")]

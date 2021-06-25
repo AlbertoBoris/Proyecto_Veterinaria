@@ -90,9 +90,10 @@
 <div style="width:49%; float: right; margin-bottom: 3px">
     <h3>Panel de Control de Usuario:</h3>
     <div style="width:50%; background-color: #4e73df; height: 70px; float: left; border-style: solid; border-radius: 7px; border-color: #1849AB">
-        <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/2809/2809814.png" alt="Alternate Text" />
-        <br />
-        <a style="color:white; padding-left: 20px" @Html.ActionLink("Registra tus Mascotas", "registrarMascota", new { id = @Html.DisplayFor(model => model.ID_USU) }) </a>
+        <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/2809/2809936.png" alt="Alternate Text" />
+        <h8 style="color:white; padding-left: 20px"> *Administrar Citas* </h8>
+        <a style="color:white; padding-left: 20px; margin-right: 50px" @Html.ActionLink("Registrar una Cita", "registrarCita", new { id = @Html.DisplayFor(model => model.ID_USU) }) </a>
+        <a style="color:white; padding-left: 20px" @Html.ActionLink("Lista de Citas", "listadoCitaxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
     </div>
 
     <div style="width:49%; background-color: #4e73df; height: 70px; float: right; border-style: solid; border-radius: 7px; border-color: #1849AB">
@@ -108,7 +109,8 @@
 <div style="width:49%; float: right">
     <div style="width:50%; background-color: #4e73df; height: 70px; float: left; border-style: solid; border-radius: 7px; border-color: #1849AB">
         <img style="float: left; width:50px; margin-top: 3px" src="https://image.flaticon.com/icons/png/512/3460/3460335.png" alt="Alternate Text" />
-        <br />
+        <h8 style="color:white; padding-left: 20px"> *Administrar Mascotas* </h8>
+        <a style="color:white; padding-left: 20px; margin-right: 15px" @Html.ActionLink("Registra tus Mascotas", "registrarMascota", new { id = @Html.DisplayFor(model => model.ID_USU) }) </a>
         <a style="color:white; padding-left: 20px" @Html.ActionLink("Lista de Mascotas", "listadoMascotaxUsuario", new { id = @Html.DisplayFor(model => model.ID_USU) })</a>
     </div>
 

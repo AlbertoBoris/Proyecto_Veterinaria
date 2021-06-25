@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Veterinaria.Models.Cita>
+
+@{
+    ViewBag.Title = "listadoCita";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 style="float: left; width: 40%" class="m-0 font-weight-bold text-primary">Lista de Citas Medicas</h6>
+        <a style="float:right;width:10%" href="/Cita/registrarCita">Registra Cita</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FECHA_REG)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_USU)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_AREA)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_MASC)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_HORAR)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ID_ESTA)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FECHA_REG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_USU)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_AREA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_MASC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_HORAR)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID_ESTA)
+                    </td>
+                    <td>
+                        <a class="fas fa-fw fa-wrench"> @Html.ActionLink("Edi.", "editarCita", new { id = item.ID_CITA }) </a> |
+                        <a class="fas fa-fw fa-list"> @Html.ActionLink("Det.", "detalleCita", new { id = item.ID_CITA }) </a> |
+                        <a class="fas fa-fw fa-trash">@Html.ActionLink("Eli.", "eliminarCita", new { id = item.ID_CITA }) </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

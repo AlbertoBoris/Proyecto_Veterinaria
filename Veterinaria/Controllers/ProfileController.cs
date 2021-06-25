@@ -166,6 +166,77 @@ namespace Veterinaria.Controllers
             cn.Close();
             return aMascota;
         }
+
+        List<Cita> ListCita()
+        {
+            List<Cita> aCita = new List<Cita>();
+            SqlCommand cmd = new SqlCommand("SP_LISTACITA", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aCita.Add(new Cita()
+                {
+                    ID_CITA = dr[0].ToString(),
+                    FECHA_REG = DateTime.Parse(dr[1].ToString()),
+                    ID_USU = dr[2].ToString(),
+                    ID_AREA = dr[3].ToString(),
+                    ID_MASC = dr[4].ToString(),
+                    ID_HORAR = dr[5].ToString(),
+                    ID_HORA = dr[6].ToString(),
+                    ID_ESTA = dr[7].ToString(),
+                    IMPORTE = double.Parse(dr[8].ToString()),
+
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aCita;
+        }
+
+        List<Hora> ListHora()
+        {
+            List<Hora> aDistrito = new List<Hora>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAHORA", cn);
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Hora objP = new Hora()
+                {
+                    ID_HORA = dr[0].ToString(),
+                    NOM_HOR = dr[1].ToString(),
+                };
+                aDistrito.Add(objP);
+            }
+
+            dr.Close();
+            cn.Close();
+            return aDistrito;
+        }
+
+        List<Horario> ListHorar()
+        {
+            List<Horario> aDistrito = new List<Horario>();
+            SqlCommand cmd = new SqlCommand("SP_LISTADOHORARIO", cn);
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Horario objP = new Horario()
+                {
+                    ID_HORAR = dr[0].ToString(),
+                    NOMB_HORA = dr[1].ToString(),
+                };
+                aDistrito.Add(objP);
+            }
+
+            dr.Close();
+            cn.Close();
+            return aDistrito;
+        }
+
         List<HistorialOriginal> ListHistorialOriginal()
         {
             List<HistorialOriginal> aHistorial = new List<HistorialOriginal>();
@@ -189,6 +260,73 @@ namespace Veterinaria.Controllers
             dr.Close();
             cn.Close();
             return aHistorial;
+        }
+
+        List<Estado> ListEstado()
+        {
+            List<Estado> aEstado = new List<Estado>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAESTADO", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aEstado.Add(new Estado()
+                {
+                    ID_ESTA = dr[0].ToString(),
+                    NOMB_ESTA = dr[1].ToString()
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aEstado;
+        }
+
+        List<Area> ListArea()
+        {
+            List<Area> aArea = new List<Area>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAAREA", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aArea.Add(new Area()
+                {
+                    ID_AREA = dr[0].ToString(),
+                    NOMB_AREA = dr[1].ToString(),
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aArea;
+        }
+        List<CitaOriginal> ListCitaOriginal()
+        {
+            List<CitaOriginal> aCita = new List<CitaOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTACITAORIGINAL", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aCita.Add(new CitaOriginal()
+                {
+                    ID_CITA = dr[0].ToString(),
+                    FECHA_REG = DateTime.Parse(dr[1].ToString()),
+                    ID_USU = dr[2].ToString(),
+                    ID_AREA = dr[3].ToString(),
+                    ID_MASC = dr[4].ToString(),
+                    ID_HORAR = dr[5].ToString(),
+                    ID_HORA = dr[6].ToString(),
+                    ID_ESTA = dr[7].ToString(),
+                    IMPORTE = double.Parse(dr[8].ToString()),
+
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aCita;
         }
 
         List<HistorialOriginal> ListHistorialxMascota(string codigo)
@@ -267,7 +405,6 @@ namespace Veterinaria.Controllers
             cn.Close();
             return aPedido;
         }
-
 
         List<PedidoProdOriginal> ListPedidoProdxUsuario(string codigo)
         {
@@ -403,6 +540,88 @@ namespace Veterinaria.Controllers
             return aPedido;
         }
 
+        List<CitaOriginal> ListCitaxUsuario(string codigo)
+        {
+            CitaOriginal mascO = ListCitaOriginal().Where(x => x.ID_USU == codigo).FirstOrDefault();
+            List<CitaOriginal> aPedido = new List<CitaOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTACITALXUSUARIO", cn);
+            cmd.Parameters.AddWithValue("@USU", codigo);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aPedido.Add(new CitaOriginal()
+                {
+                    ID_CITA = dr[0].ToString(),
+                    FECHA_REG = DateTime.Parse(dr[1].ToString()),
+                    ID_USU = dr[2].ToString(),
+                    ID_AREA = dr[3].ToString(),
+                    ID_MASC = dr[4].ToString(),
+                    ID_HORAR = dr[5].ToString(),
+                    ID_HORA = dr[6].ToString(),
+                    ID_ESTA = dr[7].ToString(),
+                    IMPORTE = double.Parse(dr[8].ToString()),
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aPedido;
+        }
+        string codigoCorrelativo()
+        {
+            string codigo = null;
+            SqlCommand cmd = new SqlCommand("SP_ULTIMOCODIGOCITA", cn);
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                codigo = dr[0].ToString();
+            }
+            dr.Close();
+            cn.Close();
+
+            string s = codigo.Substring(1, 7);
+            int s2 = int.Parse(s);
+            if (s2 < 9)
+            {
+                s2++;
+                codigo = "C000000" + s2;
+            }
+            else if (s2 >= 9)
+            {
+                s2++;
+                codigo = "C00000" + s2;
+            }
+            else if (s2 >= 99)
+            {
+                s2++;
+                codigo = "C0000" + s2;
+            }
+            else if (s2 >= 999)
+            {
+                s2++;
+                codigo = "C000" + s2;
+            }
+            else if (s2 >= 9999)
+            {
+                s2++;
+                codigo = "C00" + s2;
+            }
+            else if (s2 >= 99999)
+            {
+                s2++;
+                codigo = "C0" + s2;
+            }
+            else if (s2 >= 999999)
+            {
+                s2++;
+                codigo = "C" + s2;
+            }
+            return codigo;
+        }
+
 
         /**** Registrar Mascota ****/
 
@@ -513,6 +732,33 @@ namespace Veterinaria.Controllers
             return aMascota;
         }
 
+        List<MascotaOriginal> ListMascotaxUsuarioCita()
+        {
+            List<MascotaOriginal> aMascota = new List<MascotaOriginal>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAMASCOTAXUSUARIO", cn);
+            cmd.Parameters.AddWithValue("@USU", Session["IdUsuario"].ToString());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aMascota.Add(new MascotaOriginal()
+                {
+                    ID_MASC = dr[0].ToString(),
+                    NOMBRE = dr[1].ToString(),
+                    ANIMAL = dr[2].ToString(),
+                    RAZA = dr[3].ToString(),
+                    EDAD = dr[4].ToString(),
+                    FECHA_NACI = DateTime.Parse(dr[5].ToString()),
+                    ID_USU = dr[6].ToString(),
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aMascota;
+        }
+
         string CRUD(string proceso, List<SqlParameter> p)
         {
             string mensaje = "No se registro";
@@ -587,6 +833,39 @@ namespace Veterinaria.Controllers
             return RedirectToAction("IndexUsuario");
         }
 
+        public ActionResult registrarCita(string id)
+        {
+            DateTime now = DateTime.Now;
+            ViewBag.codigo = codigoCorrelativo();
+            ViewBag.usuario = id;
+            ViewBag.fecha = now.Year + "/" + now.Month + "/" + now.Day;
+            ViewBag.mascota = new SelectList(ListMascotaxUsuarioCita(), "ID_MASC", "NOMBRE");
+            ViewBag.area = new SelectList(ListArea(), "ID_AREA", "NOMB_AREA");
+            ViewBag.hora = new SelectList(ListHora(), "ID_HORA", "NOM_HOR");
+            ViewBag.horario = new SelectList(ListHorar(), "ID_HORAR", "NOMB_HORA");
+            ViewBag.estado = new SelectList(ListEstado(), "ID_ESTA", "NOMB_ESTA");
+
+            return View(new CitaOriginal());
+        }
+
+        [HttpPost]
+        public ActionResult registrarCita(CitaOriginal obju)
+        {
+            List<SqlParameter> parametros = new List<SqlParameter>() {
+                new SqlParameter(){ParameterName="@IDCIT",SqlDbType=SqlDbType.Char, Value=obju.ID_CITA},
+                new SqlParameter(){ParameterName="@FECHA",SqlDbType=SqlDbType.DateTime, Value=obju.FECHA_REG},
+                new SqlParameter(){ParameterName="@IDUSU",SqlDbType=SqlDbType.Char, Value=obju.ID_USU},
+                new SqlParameter(){ParameterName="@AREA",SqlDbType=SqlDbType.Char, Value=obju.ID_AREA},
+                new SqlParameter(){ParameterName="@IDMASC",SqlDbType=SqlDbType.Char, Value=obju.ID_MASC},
+                new SqlParameter(){ParameterName="@HORAR",SqlDbType=SqlDbType.Char, Value=obju.ID_HORAR},
+                new SqlParameter(){ParameterName="@HORA",SqlDbType=SqlDbType.Char, Value=obju.ID_HORA},
+                new SqlParameter(){ParameterName="@IDESTA",SqlDbType=SqlDbType.Char, Value=obju.ID_ESTA},
+                new SqlParameter(){ParameterName="@IMPOR",SqlDbType=SqlDbType.SmallMoney, Value=obju.IMPORTE}
+            };
+            ViewBag.mensaje = CRUD("SP_MANTENIMIENTOCITA", parametros);
+            return RedirectToAction("IndexUsuario");
+        }
+
         public ActionResult eliminarMascota(string id)
         {
             Mascota objU = ListMascota().Where(x => x.ID_MASC == id).FirstOrDefault();
@@ -610,6 +889,11 @@ namespace Veterinaria.Controllers
             return View(ListPedidoProdxUsuario(id));
         }
 
+        public ActionResult listadoCita()
+        {
+            return View(ListCita());
+        }
+
         public ActionResult listadoPedidoSerxUsuario(string id)
         {
             PedidoSerOriginal mascO = ListPedidoSerOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
@@ -621,6 +905,11 @@ namespace Veterinaria.Controllers
 
             ViewBag.distrito = new SelectList(ListDistrito(), "ID_DIST", "NOM_DIS");
             return View(usuaO);
+        }
+        public ActionResult listadoCitaxUsuario(string id)
+        {
+            CitaOriginal mascO = ListCitaOriginal().Where(x => x.ID_USU == id).FirstOrDefault();
+            return View(ListCitaxUsuario(id));
         }
         public ActionResult listadoHistorialxMascota(string id)
         {
@@ -671,6 +960,17 @@ namespace Veterinaria.Controllers
         {
             PedidoSer objP = ListPedidoSer().Where(p => p.ID_PEDI == id).FirstOrDefault();
             return View(objP);
+        }
+
+        public ActionResult eliminarCita(string id)
+        {
+            Cita objU = ListCita().Where(x => x.ID_CITA == id).FirstOrDefault();
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter(){ParameterName="@IDCITA",SqlDbType=SqlDbType.Char, Value=objU.ID_CITA}
+            };
+            CRUD("SP_ELIMINARCITA", parameters);
+            return RedirectToAction("IndexUsuario");
         }
 
         public ActionResult eliminarPedidoServ(string id)

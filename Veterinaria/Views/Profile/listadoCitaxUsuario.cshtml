@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Veterinaria.Models.CitaOriginal>
+
+@{
+    ViewBag.Title = "listadoCitaxUsuario";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>Lista de Citas</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_CITA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHA_REG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_USU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_AREA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_MASC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_HORAR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_HORA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IMPORTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_ESTA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_CITA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FECHA_REG)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_USU)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_AREA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_MASC)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_HORAR)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_HORA)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IMPORTE)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ID_ESTA)
+    </td>
+    <td>
+        @Html.ActionLink("Eliminar", "eliminarCita", new {  id=item.ID_CITA  })
+    </td>
+</tr>
+}
+
+</table>

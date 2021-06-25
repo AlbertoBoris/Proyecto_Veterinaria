@@ -1,0 +1,95 @@
+﻿@model Veterinaria.Models.Cita
+
+@{
+    ViewBag.Title = "detalleCita";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<h2>Detalles de la Cita</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div style="width:20%;float:left">
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_CITA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_CITA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FECHA_REG)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FECHA_REG)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_USU)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_USU)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_AREA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_AREA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_MASC)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_MASC)
+            </dd>
+
+        </div>
+
+        <div style="width:70%;float:right">
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_HORAR)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_HORAR)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_HORA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_HORA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_ESTA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID_ESTA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IMPORTE)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IMPORTE)
+            </dd>
+        </div>
+    </dl>
+</div>
+<br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br />
+<p>
+    @Html.ActionLink("Volver a la Lista", "listadoCita")
+</p>
