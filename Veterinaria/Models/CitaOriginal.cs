@@ -13,6 +13,7 @@ namespace Veterinaria.Models
         public string ID_CITA { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Fecha de Nacimiento (yyyy-MM-dd)")]
+        
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Fecha")]
         public DateTime FECHA_REG { get; set; }
