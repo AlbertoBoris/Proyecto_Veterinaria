@@ -143,6 +143,31 @@ namespace Veterinaria.Controllers
             return aDistrito;
         }
 
+        List<Historial> ListHistorial()
+        {
+            List<Historial> aHistorial = new List<Historial>();
+            SqlCommand cmd = new SqlCommand("SP_LISTAHISTORIAL", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                aHistorial.Add(new Historial()
+                {
+                    ID_HIST = dr[0].ToString(),
+                    ID_MASC = dr[1].ToString(),
+                    FEC_ATT = DateTime.Parse(dr[2].ToString()),
+                    ASUNTO = dr[3].ToString(),
+                    DESCRIPCION = dr[4].ToString(),
+                    TRATAMIENTO = dr[5].ToString(),
+
+                });
+            }
+            dr.Close();
+            cn.Close();
+            return aHistorial;
+        }
+
         List<Distrito> ListDistrito()
         {
             List<Distrito> aDistrito = new List<Distrito>();
@@ -951,6 +976,12 @@ namespace Veterinaria.Controllers
         {
             PedidoProd objP = ListPedidoProd().Where(p => p.ID_PEDI == id).FirstOrDefault();
             return View(objP);
+        }
+
+        public ActionResult detalleHistorial(string id)
+        {
+            Historial objU = ListHistorial().Where(p => p.ID_HIST == id).FirstOrDefault();
+            return View(objU);
         }
 
         public ActionResult eliminarPedidoProd(string id)

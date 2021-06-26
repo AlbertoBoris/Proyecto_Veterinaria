@@ -10,9 +10,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ID_HIST)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.ID_MASC)
         </th>
         <th>
@@ -27,14 +24,10 @@
         <th>
             @Html.DisplayNameFor(model => model.TRATAMIENTO)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ID_HIST)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ID_MASC)
         </td>
@@ -49,9 +42,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TRATAMIENTO)
-        </td>
-        <td>
-            @Html.ActionLink("Detalle", "Edit", new { /* id=item.PrimaryKey */ }) |
         </td>
     </tr>
 }

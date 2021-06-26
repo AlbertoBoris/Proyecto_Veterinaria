@@ -1,0 +1,66 @@
+﻿@model Veterinaria.Models.Historial
+
+@{
+    ViewBag.Title = "detalleHistorial";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>Detalles del Historial</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_HIST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_HIST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_MASC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_MASC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FEC_ATT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FEC_ATT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ASUNTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ASUNTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRATAMIENTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRATAMIENTO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -2188,6 +2188,7 @@
     <Content Include="Views\Cita\editarCita.cshtml" />
     <Content Include="Views\Profile\listadoCitaxUsuario.cshtml" />
     <Content Include="Views\Profile\registrarCita.cshtml" />
+    <Content Include="Views\Profile\detalleHistorial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
