@@ -24,17 +24,17 @@ namespace Veterinaria.Models
         public DateTime FEC_ATT { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese ASunto")]
-        [RegularExpression("^[a-zA-Z ]{1,100}$", ErrorMessage = "Solo letras en el Campo Asunto")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,100}$", ErrorMessage = "Solo letras en el Campo Asunto")]
         [DisplayName("Asunto")]
         public string ASUNTO { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Descripcion")]
-        [RegularExpression("^[a-zA-Z ]{1,100}$", ErrorMessage = "Solo letras en el Campo Descripcion")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,100}$", ErrorMessage = "Solo letras en el Campo Descripcion")]
         [DisplayName("Descripcion")]
         public string DESCRIPCION { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Tratamiento")]
-        [RegularExpression("^[a-zA-Z ]{1,100}$", ErrorMessage = "Solo letras en el Campo Tratamiento")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,100}$", ErrorMessage = "Solo letras en el Campo Tratamiento")]
         [DisplayName("Tratamiento")]
         public string TRATAMIENTO { get; set; }
     }

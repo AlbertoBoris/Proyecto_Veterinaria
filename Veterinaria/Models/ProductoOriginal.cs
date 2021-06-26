@@ -15,7 +15,7 @@ namespace Veterinaria.Models
         public string ID_PROD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Nombre")]
-        [RegularExpression("^[a-zA-Z ]{1,50}$", ErrorMessage = "Solo letras en el Campo Nombre")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,50}$", ErrorMessage = "Solo letras en el Campo Nombre")]
 
         [DisplayName("NOMBRE")]
         public string NOMB_PROD { get; set; }
@@ -39,25 +39,25 @@ namespace Veterinaria.Models
         public string SERIE { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Marca")]
-        [RegularExpression("^[a-zA-Z ]{1,35}$", ErrorMessage = "Solo letras en el Campo Marca")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,35}$", ErrorMessage = "Solo letras en el Campo Marca")]
 
         [DisplayName("MARCA")]
         public string MARCA { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Proveedor")]
-        [RegularExpression("^[a-zA-Z ]{1,25}$", ErrorMessage = "Solo letras en el Campo Proveedor")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,25}$", ErrorMessage = "Solo letras en el Campo Proveedor")]
 
         [DisplayName("PROVEEDOR")]
         public string PROV_PROD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Descripcion")]
-        [RegularExpression("^[a-zA-Z ]{1,50}$", ErrorMessage = "Solo letras en el Campo Descripcion")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,50}$", ErrorMessage = "Solo letras en el Campo Descripcion")]
 
         [DisplayName("DESCRIPCION")]
         public string DESC_PROD { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Ingrese Detalle")]
-        [RegularExpression("^[a-zA-Z ]{1,50}$", ErrorMessage = "Solo letras en el Campo Detalle")]
+        [RegularExpression("^[A-Za-zÁÉÍÓÚáéíóúñÑ ]{1,50}$", ErrorMessage = "Solo letras en el Campo Detalle")]
 
         [DisplayName("DETALLE")]
         public string DESC_HTML { get; set; }
